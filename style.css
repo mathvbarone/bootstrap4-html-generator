@@ -7,3 +7,9 @@
     border-radius: .25rem;
     border: 1px solid #fff;
 }
+
+@media (max-width: 768px) {
+    .buttons{
+        margin-left: 0!important;
+    }
+}
