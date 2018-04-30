@@ -19,7 +19,7 @@ cleanCode = e => {
 
 showExample = () => {
     col = 
-`       <div class="col col-example col-${ 12 / inputNumber.value }">
+`       <div class="col-example col-${ 12 / inputNumber.value }">
         </div>
 `
     columns = new Array(parseInt(inputNumber.value)).fill(col).join('');
@@ -33,7 +33,7 @@ e.preventDefault();
 if(inputNumber.value <= 12 ){
     showExample();
         col = 
-    `   <div class="col col-${ 12 / inputNumber.value }">
+    `   <div class="col-${ 12 / inputNumber.value }">
         </div>
     `
     const openRow = [
