@@ -14,12 +14,16 @@
         e.preventDefault();
         showCode.innerHTML = '';
         inputNumber.value = 'number-of-columns';
-        columnsSpace.value = 'number-of-columns'
+        // columnsSpace.value = 'number-of-columns'
         example.innerHTML = '';
         
     }
     
     showExample = () => {
+        col = 
+    `       <div class="col-example col-${ 12 / inputNumber.value }">
+            </div>
+    `
         columns = new Array(parseInt(inputNumber.value)).fill(col).join('');
         example.innerHTML = columns;
     }
@@ -56,7 +60,7 @@
         }
     }
     
-    columnsSpace.addEventListener('click', checkSpace);
+    // columnsSpace.addEventListener('click', checkSpace);
     generateButton.addEventListener('click', generateCode);
     cleanButton.addEventListener('click', cleanCode);
 })();
