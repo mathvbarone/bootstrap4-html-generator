@@ -10,18 +10,39 @@
         crossorigin="anonymous">
 </head>
 
-<body>
+<body class="is-active">
     <section class="container pl-4 pr-4">
         <h1 class="card-title mt-3 mb-5 text-center">Bootstrap 4 HTML Generator</h1>
         <div class="form-group row mb-3">
-            <input type="text" maxlength="2" class="columns-number-input mb-2 col-md-9" placeholder="Number of Columns">
-            <div class="buttons col-md ml-2 mb-2">
+            <select class="columns-number-input mb-2 col-md">
+                <option value="number-of-columns">Number of Columns</option>
+                <option value="2">2</option>
+                <option value="4">4</option>
+                <option value="6">6</option>
+                <option value="12">12</option>
+            </select>
+            <select class="columns-space mb-2 ml-2 col-md">
+                <option value="space-between-columns">Space Between Columns?</option>
+                <option value="space-columns-yes">Yes</option>
+                <option value="space-columns-no">No</option>
+            </select>
+            <select class="columns-space-set ml-2 mb-2 col-md">
+                <option value="set-spaces">Set spaces</option>
+                <option value="space-columns-left">Left</option>
+                <option value="space-columns-right">Right</option>
+                <option value="space-columns-left-right">Left And Right</option>
+            </select>
+        </div>
+
+        <div class="form-group justify-content-end row mb-3">
+            <div class="buttons col-md-4 mb-2">
                 <div class="row">
                     <button type="submit" class="clean-button col btn mr-2 btn-danger">Clean</button>
                     <button type="submit" class="generate-button col  btn btn-primary">Generate</button>
                 </div>
             </div>
         </div>
+
         <div class="example mb-3 row"></div>
 
         <div class="row">
@@ -30,10 +51,7 @@
 
 
     </section>
-
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
 </body>
-
 </html>
-
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>

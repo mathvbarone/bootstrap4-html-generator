@@ -8,8 +8,11 @@
     border: 1px solid #fff;
 }
 
-@media (max-width: 768px) {
-    .buttons{
-        margin-left: 0!important;
-    }
-}
+
+.columns-space-set {
+    display: none;
+}; 
+
+.is-active {
+    display: block;
+};
