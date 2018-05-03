@@ -5,6 +5,7 @@ label {
 .show-code {
     height: 300px;
 }
+
 .col-example {
     height: 100px;
     background: #80bdff;
@@ -14,12 +15,7 @@ label {
 
 .columns-space-set {
     display: none;
-}; 
-
-body {
-    background: blue;
 }
-
 
 .is-active {
     display: block;
