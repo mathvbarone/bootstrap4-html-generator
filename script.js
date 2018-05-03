@@ -7,7 +7,7 @@
     const showCode = document.querySelector('.show-code');
     const columnsSpace = document.querySelector('.columns-space');
     const columnsSpaceSet = document.querySelector('.columns-space-set');
-    exampleStatus = false;
+    let exampleStatus = false;
     let col;
     let columns;
     
@@ -48,15 +48,10 @@
                     </div>
             `
         }
-        if(!exampleStatus) {
-            col = col.replace('col-example', '');
-        }
-        console.log(col);
         return col;
     }
     
     showExample = () => {
-        exampleStatus = true;
         renderCol();
         columns = new Array(parseInt(inputNumber.value)).fill(col).join('');
         example.innerHTML = columns;
@@ -75,12 +70,12 @@
         if ( inputNumber.value === 'number-of-columns' ){
             alert('Select column value.');
         } else {
-            exampleStatus = false;
             renderCol();
             showExample();
             const openRow = [
-            `    <div class="row">
+            `            <div class="row">
             `];
+            col = col.replace('col-example', '');
             columns = new Array(parseInt(inputNumber.value)).fill(col);
             const closeRow = [
             `</div>
