@@ -7,29 +7,63 @@
     const showCode = document.querySelector('.show-code');
     const columnsSpace = document.querySelector('.columns-space');
     const columnsSpaceSet = document.querySelector('.columns-space-set');
+    exampleStatus = false;
     let col;
     let columns;
     
     cleanCode = e => {
         e.preventDefault();
         showCode.innerHTML = '';
-        inputNumber.value = 'number-of-columns';
-        // columnsSpace.value = 'number-of-columns'
+        columnsSpace.checked = false;
+        columnsSpaceSet.value = 'set-spaces';
+        inputNumber.value = 'number-of-columns'
         example.innerHTML = '';
-        
+        columnsSpaceSet.classList.remove('is-active');
+    }
+
+    renderCol = () => {
+
+        switch(columnsSpaceSet.value) {
+            case 'space-columns-left':
+                col = 
+                `       <div class="col-example ml-2 col">
+                        </div>
+                `
+                break;
+            case 'space-columns-right':
+                col = 
+                `       <div class="col-example mr-2 col">
+                        </div>
+                `
+                break;
+            case 'space-columns-left-right':
+                col = 
+                `       <div class="col-example ml-2 mr-2 col">
+                        </div>
+                `
+                break;
+            default:
+            col = 
+            `       <div class="col-example col-${ 12 / inputNumber.value }">
+                    </div>
+            `
+        }
+        if(!exampleStatus) {
+            col = col.replace('col-example', '');
+        }
+        console.log(col);
+        return col;
     }
     
     showExample = () => {
-        col = 
-    `       <div class="col-example col-${ 12 / inputNumber.value }">
-            </div>
-    `
+        exampleStatus = true;
+        renderCol();
         columns = new Array(parseInt(inputNumber.value)).fill(col).join('');
         example.innerHTML = columns;
     }
     
     checkSpace = () => {
-        if(columnsSpace.value === 'space-columns-yes') {
+        if(columnsSpace.checked) {
             columnsSpaceSet.classList.add('is-active');
         } else {
             columnsSpaceSet.classList.remove('is-active');
@@ -38,15 +72,12 @@
 
     generateCode = e => {
         e.preventDefault();
-        if (inputNumber.value > 12 ){
-            alert('Max 12 columns')
+        if ( inputNumber.value === 'number-of-columns' ){
+            alert('Select column value.');
         } else {
-            console.log(inputNumber.value % 2);
+            exampleStatus = false;
+            renderCol();
             showExample();
-                col = 
-            `   <div class="col-${ 12 / inputNumber.value }">
-                </div>
-            `
             const openRow = [
             `    <div class="row">
             `];
@@ -60,7 +91,7 @@
         }
     }
     
-    // columnsSpace.addEventListener('click', checkSpace);
+    columnsSpace.addEventListener('change', checkSpace);
     generateButton.addEventListener('click', generateCode);
     cleanButton.addEventListener('click', cleanCode);
 })();

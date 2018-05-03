@@ -1,3 +1,7 @@
+label {
+    cursor: pointer;
+}
+
 .show-code {
     height: 300px;
 }
@@ -8,11 +12,17 @@
     border: 1px solid #fff;
 }
 
-
 .columns-space-set {
     display: none;
 }; 
 
+body {
+    background: blue;
+}
+
+
 .is-active {
     display: block;
 };
+
+
