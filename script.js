@@ -5,7 +5,6 @@
     const cleanButton = document.querySelector('.clean-button');
     const example = document.querySelector('.example');
     const showCode = document.querySelector('.show-code');
-    const columnsSpace = document.querySelector('.columns-space');
     const columnsSpaceSet = document.querySelector('.columns-space-set');
     let exampleStatus = false;
     let col;
@@ -14,7 +13,6 @@
     cleanCode = e => {
         e.preventDefault();
         showCode.innerHTML = '';
-        columnsSpace.checked = false;
         columnsSpaceSet.value = 'set-spaces';
         inputNumber.value = 'number-of-columns'
         example.innerHTML = '';
@@ -51,42 +49,44 @@
         return col;
     }
     
+
+    renderColumn = () => {
+        columns = new Array(parseInt(inputNumber.value)).fill(col);
+        columns[0] = columns[0].replace('ml-2','');
+        columns[columns.length - 1] = columns[columns.length - 1].replace('mr-2','');
+        return columns;
+    }
+
     showExample = () => {
         renderCol();
-        columns = new Array(parseInt(inputNumber.value)).fill(col).join('');
-        example.innerHTML = columns;
+        renderColumn();
+        example.innerHTML = columns.join('');
     }
     
-    checkSpace = () => {
-        if(columnsSpace.checked) {
-            columnsSpaceSet.classList.add('is-active');
-        } else {
-            columnsSpaceSet.classList.remove('is-active');
-        }
-    }
+
 
     generateCode = e => {
         e.preventDefault();
         if ( inputNumber.value === 'number-of-columns' ){
             alert('Select column value.');
         } else {
-            renderCol();
             showExample();
+            renderCol();
+            col = col.replace('col-example', '');
+            renderColumn();
             const openRow = [
             `            <div class="row">
             `];
-            col = col.replace('col-example', '');
-            columns = new Array(parseInt(inputNumber.value)).fill(col);
+
             const closeRow = [
             `</div>
             `];
             const code = openRow.concat(columns, closeRow).join('');
-    
+            console.log(code);
             showCode.innerHTML = code;
         }
     }
     
-    columnsSpace.addEventListener('change', checkSpace);
     generateButton.addEventListener('click', generateCode);
     cleanButton.addEventListener('click', cleanCode);
 })();
