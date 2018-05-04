@@ -13,7 +13,7 @@
         e.preventDefault();
         showCode.innerHTML = '';
         columnsSpace.value = 'set-spaces';
-        inputNumber.value = 'number-of-columns'
+        inputNumber.value = ''
         example.innerHTML = '';
     }
 
@@ -40,7 +40,7 @@
             break;
             default:
             col = 
-            `       <div class="col-example col-md-${ 12 / inputNumber.value }">
+            `       <div class="col-example col-md">
                     </div>
             `
         }
@@ -49,8 +49,8 @@
     
     renderColumn = () => {
         columns = new Array(parseInt(inputNumber.value)).fill(col);
-        columns[0] = columns[0].replace('ml-2','');
-        columns[columns.length - 1] = columns[columns.length - 1].replace('mr-2','');
+        columns[0] = columns[0].replace('ml-md-2','');
+        columns[columns.length - 1] = columns[columns.length - 1].replace('mr-md-2','');
         return columns;
     }
 
@@ -62,8 +62,8 @@
     
     generateCode = e => {
         e.preventDefault();
-        if ( inputNumber.value === 'number-of-columns' ){
-            alert('Select column value.');
+        if (!inputNumber.value){
+            alert('Select column value');
         } else {
             showExample();
             renderCol();
