@@ -3,6 +3,7 @@
     const inputNumber = document.querySelector('.columns-number-input');
     const generateButton = document.querySelector('.generate-button');
     const cleanButton = document.querySelector('.clean-button');
+    const columnsSpace = document.querySelector('.columns-space');
     const example = document.querySelector('.example');
     const showCode = document.querySelector('.show-code');
     let col;
@@ -11,35 +12,35 @@
     cleanCode = e => {
         e.preventDefault();
         showCode.innerHTML = '';
-        columnsSpaceSet.value = 'set-spaces';
+        columnsSpace.value = 'set-spaces';
         inputNumber.value = 'number-of-columns'
         example.innerHTML = '';
     }
 
     renderCol = () => {
 
-        switch (columnsSpaceSet.value) {
+        switch (columnsSpace.value) {
             case 'space-columns-left':
             col = 
-            `       <div class="col-example ml-2 col">
+            `       <div class="col-example ml-md-2 col-md">
                     </div>
             `
             break;
             case 'space-columns-right':
             col = 
-            `       <div class="col-example mr-2 col">
+            `       <div class="col-example mr-md-2 col-md">
                     </div>
             `
             break;
             case 'space-columns-left-right':
             col = 
-            `       <div class="col-example ml-2 mr-2 col">
+            `       <div class="col-example ml-md-2 mr-md-2 col-md">
                     </div>
             `
             break;
             default:
             col = 
-            `       <div class="col-example col-${ 12 / inputNumber.value }">
+            `       <div class="col-example col-md-${ 12 / inputNumber.value }">
                     </div>
             `
         }
