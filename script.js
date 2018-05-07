@@ -11,9 +11,13 @@
     const checkColumnsSpace = document.querySelector('.check-columns-space');
     let col;
     let columns;
+    let spacerClass;
+    let responsiveClass;
+    let responsiveSpacer;
     
     cleanCode = e => {
         e.preventDefault();
+        showCode.classList.add('is-hidden');
         columnsSpace.value = 'set-spaces';
         inputNumber.value = ''
         example.innerHTML = '';
@@ -24,7 +28,6 @@
         showCode.innerHTML = '';
         spaceWidthInput.value = 'set-space-width';
     }
-
     
     showSpacesBetween = () => {
         if (checkColumnsSpace.checked) {
@@ -33,21 +36,16 @@
         } else {
             spaceWidthInput.classList.add('is-hidden');
             columnsSpace.classList.add('is-hidden');
+            columnsSpace.value = 'set-spaces';
+            spaceWidthInput.value = 'set-space-width';
+            generateCode();
         }
     }
     
-
-
     renderCol = exampleClass  => {
-
-        let spacerClass;
-        let responsiveClass;
-        let responsiveSpacer;
-
-        exampleClass === 'isExample' ?  exampleClass = 'col-example' : exampleClass = '';
         
+        exampleClass === 'isExample' ?  exampleClass = 'col-example' : exampleClass = '';
         responsiveInput.checked ? responsiveClass = 'col-md' : responsiveClass = 'col';
-
         responsiveInput.checked ? responsiveSpacer = '-md' : responsiveSpacer = '';
 
         if(spaceWidthInput.value !== 'set-space-width') {
@@ -56,7 +54,6 @@
             spaceWidth = '-0';
         }
                
-        
         switch (columnsSpace.value) {
             case 'space-columns-left':
             spacerClass = `ml${responsiveSpacer}${spaceWidth}`;
@@ -74,9 +71,8 @@
             spacerClass = '';
         }
         
-
         col = 
-        `       <div class="${spacerClass} ${responsiveClass} ${exampleClass}">
+        `       <div class="${responsiveClass} ${exampleClass} ${spacerClass}">
                 </div>
         `
         return col;
@@ -84,8 +80,15 @@
     
     renderColumn = () => {
         columns = new Array(parseInt(inputNumber.value)).fill(col);
-        // columns[0] = columns[0].replace('ml-md-2','');
-        // columns[columns.length - 1] = columns[columns.length - 1].replace('mr-md-2','');
+                
+        if(columns[0].indexOf('ml') !== -1) {
+            columns[0] = columns[0].replace(spacerClass,'');    
+        }
+
+        if(columns[columns.length - 1].indexOf('mr') !== -1) {
+            columns[columns.length - 1] = columns[columns.length - 1].replace(spacerClass,'');
+        }
+
         return columns;
     }
 
@@ -95,11 +98,15 @@
         example.innerHTML = columns.join('');
     }
     
-    generateCode = e => {
-        e.preventDefault();
+    generateCode = () => {
+        event.preventDefault();
         if (!inputNumber.value){
             alert('Select column value');
+        } else if(inputNumber.value < 0){
+            inputNumber.value = '';
+            alert('Only posisive numbers');
         } else {
+            showCode.classList.remove('is-hidden');
             showExample();
             renderCol('notExample');
             renderColumn();
@@ -114,8 +121,13 @@
             showCode.innerHTML = code;
         }
     }
+
+    init = () => {
+        checkColumnsSpace.addEventListener('change', showSpacesBetween);
+        generateButton.addEventListener('click', generateCode);
+        cleanButton.addEventListener('click', cleanCode);
+    }
+
+    init();
     
-    checkColumnsSpace.addEventListener('change', showSpacesBetween);
-    generateButton.addEventListener('click', generateCode);
-    cleanButton.addEventListener('click', cleanCode);
 })();
