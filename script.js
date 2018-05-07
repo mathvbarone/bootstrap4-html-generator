@@ -79,7 +79,7 @@
         return col;
     }
     
-    renderColumn = () => {
+    renderColumns = () => {
         columns = new Array(parseInt(inputNumber.value)).fill(col);
                 
         if(columns[0].indexOf('ml') !== -1 ) {
@@ -96,7 +96,7 @@
     
     showExample = () => {
         renderCol('isExample');
-        renderColumn();
+        renderColumns();
         example.innerHTML = columns.join('');
     }
 
@@ -121,7 +121,7 @@
             showCode.classList.remove('is-hidden');
             showExample();
             renderCol('notExample');
-            renderColumn();
+            renderColumns();
             const openRow = [
             `           <div class="row">
             `];
