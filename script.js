@@ -105,7 +105,7 @@
             alert('Select column value');
         } else if(inputNumber.value < 0){
             inputNumber.value = '';
-            alert('Only posisive numbers');
+            alert('Only positive numbers');
         } else {
             showCode.classList.remove('is-hidden');
             showExample();
