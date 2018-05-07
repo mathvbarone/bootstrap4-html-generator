@@ -13,6 +13,9 @@ label {
     border: 1px solid #fff;
 }
 
+.is-hidden {
+    display: none;
+}
 
 
 

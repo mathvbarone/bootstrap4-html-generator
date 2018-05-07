@@ -6,6 +6,8 @@
     const columnsSpace = document.querySelector('.columns-space');
     const example = document.querySelector('.example');
     const showCode = document.querySelector('.show-code');
+    const responsiveInput = document.querySelector('.is-responsive');
+    const spaceWidthInput = document.querySelector('.space-width');
     let col;
     let columns;
     
@@ -17,45 +19,68 @@
         example.innerHTML = '';
     }
 
-    renderCol = () => {
+    showSpaceWidth = () => {
+        if (columnsSpace.value !== 'set-spaces') {
+            spaceWidthInput.classList.remove('is-hidden');
+        } else {
+            spaceWidthInput.classList.add('is-hidden');
+        }
+    }
 
+    renderCol = exampleClass  => {
+
+        let spacerClass;
+        let responsiveClass;
+        let responsiveSpacer;
+
+        exampleClass === 'isExample' ?  exampleClass = 'col-example' : exampleClass = '';
+        
+        responsiveInput.checked ? responsiveClass = 'col-md' : responsiveClass = 'col';
+
+        responsiveInput.checked ? responsiveSpacer = '-md' : responsiveSpacer = '';
+
+        if(spaceWidthInput.value !== 'set-space-width') {
+            spaceWidth = `-${spaceWidthInput.value}`;
+        } else {
+            spaceWidth = '';
+        }
+        
+        
+        
         switch (columnsSpace.value) {
             case 'space-columns-left':
-            col = 
-            `       <div class="col-example ml-md-2 col-md">
-                    </div>
-            `
+            spacerClass = `ml${responsiveSpacer}${spaceWidth}`;
             break;
+
             case 'space-columns-right':
-            col = 
-            `       <div class="col-example mr-md-2 col-md">
-                    </div>
-            `
+            spacerClass = `mr${responsiveSpacer}${spaceWidth}`;
             break;
+
             case 'space-columns-left-right':
-            col = 
-            `       <div class="col-example ml-md-2 mr-md-2 col-md">
-                    </div>
-            `
+            spacerClass = `mr${responsiveSpacer}${spaceWidth} ml${spaceResponsive}${spaceWidth}`;
             break;
+
             default:
-            col = 
-            `       <div class="col-example col-md">
-                    </div>
-            `
+            spacerClass = `${responsiveSpacer}${spaceWidth}`;
         }
+        
+
+        col = 
+        `       <div class="${spacerClass} ${responsiveClass} ${exampleClass}">
+                </div>
+        `
         return col;
     }
     
     renderColumn = () => {
         columns = new Array(parseInt(inputNumber.value)).fill(col);
-        columns[0] = columns[0].replace('ml-md-2','');
-        columns[columns.length - 1] = columns[columns.length - 1].replace('mr-md-2','');
+        // columns[0] = columns[0].replace('ml-md-2','');
+        // columns[columns.length - 1] = columns[columns.length - 1].replace('mr-md-2','');
         return columns;
     }
 
     showExample = () => {
-        renderCol();
+        renderCol('isExample');
         renderColumn();
         example.innerHTML = columns.join('');
     }
@@ -66,21 +91,21 @@
             alert('Select column value');
         } else {
             showExample();
-            renderCol();
-            col = col.replace('col-example', '');
+            renderCol('notExample');
             renderColumn();
             const openRow = [
-            `            <div class="row">
+            `           <div class="row">
             `];
 
             const closeRow = [
-            `</div>
+            `  </div>
             `];
             const code = openRow.concat(columns, closeRow).join('');            
             showCode.innerHTML = code;
         }
     }
     
+    columnsSpace.addEventListener('change', showSpaceWidth);
     generateButton.addEventListener('click', generateCode);
     cleanButton.addEventListener('click', cleanCode);
 })();
