@@ -53,10 +53,9 @@
         if(spaceWidthInput.value !== 'set-space-width') {
             spaceWidth = `-${spaceWidthInput.value}`;
         } else {
-            spaceWidth = '';
+            spaceWidth = '-0';
         }
-        
-        
+               
         
         switch (columnsSpace.value) {
             case 'space-columns-left':
@@ -72,7 +71,7 @@
             break;
 
             default:
-            spacerClass = `${responsiveSpacer}${spaceWidth}`;
+            spacerClass = '';
         }
         
 
