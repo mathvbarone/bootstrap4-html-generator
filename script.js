@@ -9,6 +9,7 @@
     const responsiveInput = document.querySelector('.is-responsive');
     const spaceWidthInput = document.querySelector('.space-width');
     const checkColumnsSpace = document.querySelector('.check-columns-space');
+    const btnCopy = document.querySelector('.btn-copy');
     let col;
     let columns;
     let spacerClass;
@@ -17,12 +18,13 @@
     
     cleanCode = e => {
         e.preventDefault();
+        spaceWidthInput.classList.add('is-hidden');
         showCode.classList.add('is-hidden');
+        columnsSpace.classList.add('is-hidden');
+        btnCopy.classList.add('is-hidden');
         columnsSpace.value = 'set-spaces';
         inputNumber.value = ''
         example.innerHTML = '';
-        spaceWidthInput.classList.add('is-hidden');
-        columnsSpace.classList.add('is-hidden');
         responsiveInput.checked = false;
         checkColumnsSpace.checked = false;
         showCode.innerHTML = '';
@@ -91,10 +93,21 @@
         return columns;
     }
 
+    
     showExample = () => {
         renderCol('isExample');
         renderColumn();
         example.innerHTML = columns.join('');
+    }
+
+    copyContent = e => {
+        e.preventDefault;
+        if(inputNumber.value) {
+            showCode.select();
+            document.execCommand("Copy");
+            alert('Code copied to your clipboard!');
+        }
+
     }
     
     generateCode = () => {
@@ -104,6 +117,7 @@
             inputNumber.value = '';
             alert('Only positive numbers');
         } else {
+            btnCopy.classList.remove('is-hidden');
             showCode.classList.remove('is-hidden');
             showExample();
             renderCol('notExample');
@@ -125,8 +139,10 @@
         checkColumnsSpace.addEventListener('change', showSpacesBetween);
         generateButton.addEventListener('click', generateCode);
         cleanButton.addEventListener('click', cleanCode);
+        btnCopy.addEventListener('click', copyContent);
     }
 
     init();
     
 })();
+
