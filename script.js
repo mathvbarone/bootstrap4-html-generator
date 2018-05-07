@@ -101,7 +101,6 @@
     }
     
     generateCode = () => {
-        event.preventDefault();
         if (!inputNumber.value){
             alert('Select column value');
         } else if(inputNumber.value < 0){
@@ -121,6 +120,7 @@
             `];
             const code = openRow.concat(columns, closeRow).join('');            
             showCode.innerHTML = code;
+            return false;
         }
     }
 
