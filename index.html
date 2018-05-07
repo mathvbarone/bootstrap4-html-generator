@@ -14,9 +14,13 @@
     <section class="container pl-4 pr-4">
         <h1 class="card-title mt-3 mb-5 text-center">Bootstrap 4 HTML Generator</h1>
         <div class="form-group row justify-content-center mb-3">
-            <input type="text" class="form-control columns-number-input mb-1 col-md-2" placeholder="Number of columns">
-            <select class="columns-space ml-md-2 mb-2 col-md-3 form-control">
-                <option value="set-spaces">Space Between Columns</option>
+            <input type="text" class="form-control columns-number-input mb-1 col-md-1" placeholder="Columns">
+            <div class="ml-md-2 mb-2 col-md-3 form-control">
+                <input class="check-columns-space mr-1" type="checkbox" id="space-between-id">
+                <label class="form-check-label" for="space-between-id">Space Between Columns</label>
+            </div>
+            <select class="columns-space is-hidden ml-md-2 mb-2 col-md-2 form-control">
+                <option value="set-spaces">Space Side</option>
                 <option value="space-columns-left">Left</option>
                 <option value="space-columns-right">Right</option>
                 <option value="space-columns-left-right">Left And Right</option>

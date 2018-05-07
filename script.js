@@ -8,24 +8,35 @@
     const showCode = document.querySelector('.show-code');
     const responsiveInput = document.querySelector('.is-responsive');
     const spaceWidthInput = document.querySelector('.space-width');
+    const checkColumnsSpace = document.querySelector('.check-columns-space');
     let col;
     let columns;
     
     cleanCode = e => {
         e.preventDefault();
-        showCode.innerHTML = '';
         columnsSpace.value = 'set-spaces';
         inputNumber.value = ''
         example.innerHTML = '';
+        spaceWidthInput.classList.add('is-hidden');
+        columnsSpace.classList.add('is-hidden');
+        responsiveInput.checked = false;
+        checkColumnsSpace.checked = false;
+        showCode.innerHTML = '';
+        spaceWidthInput.value = 'set-space-width';
     }
 
-    showSpaceWidth = () => {
-        if (columnsSpace.value !== 'set-spaces') {
+    
+    showSpacesBetween = () => {
+        if (checkColumnsSpace.checked) {
             spaceWidthInput.classList.remove('is-hidden');
+            columnsSpace.classList.remove('is-hidden');
         } else {
             spaceWidthInput.classList.add('is-hidden');
+            columnsSpace.classList.add('is-hidden');
         }
     }
+    
+
 
     renderCol = exampleClass  => {
 
@@ -57,7 +68,7 @@
             break;
 
             case 'space-columns-left-right':
-            spacerClass = `mr${responsiveSpacer}${spaceWidth} ml${spaceResponsive}${spaceWidth}`;
+            spacerClass = `mr${responsiveSpacer}${spaceWidth} ml${responsiveSpacer}${spaceWidth}`;
             break;
 
             default:
@@ -105,7 +116,7 @@
         }
     }
     
-    columnsSpace.addEventListener('change', showSpaceWidth);
+    checkColumnsSpace.addEventListener('change', showSpacesBetween);
     generateButton.addEventListener('click', generateCode);
     cleanButton.addEventListener('click', cleanCode);
 })();
