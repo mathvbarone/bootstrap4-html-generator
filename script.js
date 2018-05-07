@@ -38,7 +38,8 @@
             columnsSpace.classList.add('is-hidden');
             columnsSpace.value = 'set-spaces';
             spaceWidthInput.value = 'set-space-width';
-            generateCode();
+            inputNumber.value ? generateCode();
+            
         }
     }
     
