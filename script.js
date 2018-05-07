@@ -80,12 +80,12 @@
     renderColumn = () => {
         columns = new Array(parseInt(inputNumber.value)).fill(col);
                 
-        if(columns[0].indexOf('ml') !== -1) {
-            columns[0] = columns[0].replace(spacerClass,'');    
+        if(columns[0].indexOf('ml') !== -1 ) {
+            columns[0] = columns[0].replace(`ml${responsiveSpacer}${spaceWidth}`,'');    
         }
 
         if(columns[columns.length - 1].indexOf('mr') !== -1) {
-            columns[columns.length - 1] = columns[columns.length - 1].replace(spacerClass,'');
+            columns[columns.length - 1] = columns[columns.length - 1].replace(`mr${responsiveSpacer}${spaceWidth}`,'');
         }
 
         return columns;
