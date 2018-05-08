@@ -1,13 +1,93 @@
-body > .container {
+* {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+body {
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 label {
     cursor: pointer;
 }
+
+/* HEADER */
+
+.header {
+    z-index: 10;
+    box-shadow: 0 3px 5px rgba(0,0,0,.12);
+    padding: 5px 10px;
+    top: 0;
+    background: #fff;
+    transition: linear .3s all;
+    position: fixed;
+    width: 100%;
+}
+
+.header-nav {
+    width: 100%;
+    max-width: 1344px;
+}
+
+
+/* LOGO */
+.logo-simple .logo-simple-1 {
+    fill: #000200;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+    stroke-width: 2px;
+    transition: ease-in-out 0.2s all;
+}
+
+        
+.logo-simple .logo-simple-2 {
+    fill: none;
+}
+            
+
+.logo-simple  .logo-simple-3 {
+    fill: #fff;
+    transition: ease-in-out 0.2s all;
+}
+     
+
+.logo-simple:hover .logo-simple-1{
+    fill: #fff;
+    stroke: #000;
+}
+
+
+.logo-simple:hover .logo-simple-3{
+    fill: #000;
+}
+
+/* MENU */
+.menu-list {
+    margin: 0;
+}
+
+.menu-link {
+    color: #000;
+    font-size: .95em;
+    margin-right: 20px;
+}
+
+.menu-link:hover {
+    text-decoration: none;
+    color: #cd2b46;
+}
+              
+
+/* CONTENT */
+
+.main-content {
+    min-height: calc(100vh - 129px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 
 .show-code {
     height: 160px;
@@ -22,6 +102,83 @@ label {
 
 .is-hidden {
     display: none;
+}
+
+
+/* FOOTER */
+
+.footer {
+    padding: 20px 0;
+    color: #fff;
+    background-color: #4e4e4e;
+}
+
+.footer-site {
+    padding: 1em 0;
+    margin: 0;
+    color: #fff;
+    display: block;
+    font-size: .9em;
+}
+
+.footer-site:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.footer-phone .fa {
+    font-size: 1.4em;
+    padding-right: .4em;
+}
+
+.redes {
+    margin-top: 20px;
+}
+
+.redes-item {
+    margin: 0 .3em;
+}
+
+.redes-link {
+    color: #fff;
+}
+
+.redes-link .fa{
+    font-size: 1.2em;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 2px;
+    line-height: 1.6em;
+    transition: ease-in-out .2s all;
+} 
+
+.redes-link:hover .fa{
+    color: #fff;
+}
+
+.redes-link:hover .fa-at {
+    background: #cd2b46;
+}
+
+.redes-link:hover .fa-facebook {
+    background: #4267b2;
+}
+
+.redes-link:hover .fa-github {
+    background: #24292e;
+}
+
+.redes-link:hover .fa-twitter {
+    background: #1da1f2;
+}
+
+.redes-link:hover .fa-linkedin {
+    background: #0077b5;
+}
+
+.redes-link:hover .fa-envelope-o {
+    background: #C35163;
 }
 
 

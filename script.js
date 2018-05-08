@@ -1,5 +1,7 @@
 
 (() => {
+    const fluidCol = document.querySelector('.fluid-col-input');
+    const fixedCol = document.querySelector('.fixed-col-input');
     const inputNumber = document.querySelector('.columns-number-input');
     const generateButton = document.querySelector('.generate-button');
     const cleanButton = document.querySelector('.clean-button');
@@ -15,6 +17,12 @@
     let spacerClass;
     let responsiveClass;
     let responsiveSpacer;
+
+    toggleFluidFixedInput = () => {
+        if (fluidCol.checked) {
+            inputNumber.classList.remove('is-hidden');
+        }
+    }
     
     cleanCode = e => {
         e.preventDefault();
@@ -22,7 +30,6 @@
         showCode.classList.add('is-hidden');
         columnsSpace.classList.add('is-hidden');
         btnCopy.classList.add('is-hidden');
-        columnsSpace.value = 'set-spaces';
         inputNumber.value = ''
         example.innerHTML = '';
         responsiveInput.checked = false;
@@ -38,8 +45,6 @@
         } else {
             spaceWidthInput.classList.add('is-hidden');
             columnsSpace.classList.add('is-hidden');
-            columnsSpace.value = 'set-spaces';
-            spaceWidthInput.value = 'set-space-width';
         }
     }
     
@@ -48,12 +53,8 @@
         exampleClass === 'isExample' ?  exampleClass = 'col-example' : exampleClass = '';
         responsiveInput.checked ? responsiveClass = 'col-md' : responsiveClass = 'col';
         responsiveInput.checked ? responsiveSpacer = '-md' : responsiveSpacer = '';
-
-        if(spaceWidthInput.value !== 'set-space-width') {
-            spaceWidth = `-${spaceWidthInput.value}`;
-        } else {
-            spaceWidth = '-0';
-        }
+        spaceWidth = `-${spaceWidthInput.value}`;
+        
                
         switch (columnsSpace.value) {
             case 'space-columns-left':
