@@ -67,6 +67,17 @@ label {
     margin: 0;
 }
 
+
+.meu-btn {
+    display: flex;
+    align-items: center;
+}
+
+.menu-btn .fa-github {
+    font-size: 20px;
+    margin-left: 3px;
+}
+
 .menu-link {
     color: #000;
     font-size: .95em;
