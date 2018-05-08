@@ -23,6 +23,7 @@ label {
     transition: linear .3s all;
     position: fixed;
     width: 100%;
+    margin: 0;
 }
 
 .header-nav {
