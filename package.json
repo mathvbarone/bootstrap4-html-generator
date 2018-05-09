@@ -1,21 +1,21 @@
 {
-  "name": "bootstrap4-html-generator",
+  "name": "bootstrap4-row-generator",
   "version": "1.0.0",
-  "description": "A Bootstrap 4 HTML generator",
+  "description": "A Bootstrap 4 Row Generator",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mathvbarone/bootstrap4-html-generator.git"
+    "url": "git+https://github.com/mathvbarone/bootstrap4-row-generator.git"
   },
   "keywords": [],
   "author": "Matheus Barone <matheusvbarone@gmail.com> (http://matheusbarone.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mathvbarone/bootstrap4-html-generator/issues"
+    "url": "https://github.com/mathvbarone/bootstrap4-row-generator/issues"
   },
-  "homepage": "https://matheusbarone.com/bootstrap4-html-generator#readme",
+  "homepage": "https://matheusbarone.com/bootstrap4-row-generator",
   "dependencies": {
     "eslint": "^4.19.1"
   },
