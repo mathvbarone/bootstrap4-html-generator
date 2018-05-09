@@ -33,6 +33,11 @@ label {
 
 
 /* LOGO */
+
+.logo-link {
+    height: 35px;
+}
+
 .logo-simple .logo-simple-1 {
     fill: #000200;
     stroke: #fff;
