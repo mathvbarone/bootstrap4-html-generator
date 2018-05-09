@@ -8,6 +8,7 @@
     const cleanButton = document.querySelector('.clean-button');
     const columnsSpace = document.querySelector('.columns-space');
     const example = document.querySelector('.example');
+    const exampleContent = document.querySelector('.example-content');
     const showCode = document.querySelector('.show-code');
     const responsiveInput = document.querySelector('.is-responsive');
     const spaceWidthInput = document.querySelector('.space-width');
@@ -15,6 +16,7 @@
     const generatorContent = document.querySelector('.generator-content');
     const btnCopy = document.querySelector('.btn-copy');
     const btnRows = document.querySelector('.buttons-row');
+    let input;  
     let col;
     let columns;
     let spacerClass;
@@ -49,6 +51,7 @@
         hideItem(showCode);
         hideItem(columnsSpace);
         hideItem(btnCopy);
+        hideItem(exampleContent);
         fluidInputNumber.value = ''
         example.innerHTML = '';
         responsiveInput.checked = false;
@@ -68,11 +71,21 @@
     }
     
     renderCol = exampleClass  => {
-        
         exampleClass === 'isExample' ?  exampleClass = 'col-example' : exampleClass = '';
-        responsiveInput.checked ? responsiveClass = 'col-md' : responsiveClass = 'col';
         responsiveInput.checked ? responsiveSpacer = '-md' : responsiveSpacer = '';
         spaceWidth = `-${spaceWidthInput.value}`;
+
+        if ( responsiveInput.checked && fluidCol.checked ) {
+            responsiveClass = 'col-md';
+        } else if (!responsiveInput.checked && fluidCol.checked) {
+            responsiveClass = 'col';
+        }
+
+        if ( responsiveInput.checked && fixedCol.checked ) {
+            responsiveClass = `col-md-${ 12 / fixedInputNumber.value}`;
+        } else if (!responsiveInput.checked && fixedCol.checked) {
+            responsiveClass = `col-${ 12 / fixedInputNumber.value }`;
+        }
         
                
         switch (columnsSpace.value) {
@@ -99,8 +112,16 @@
         return col;
     }
     
-    renderColumns = () => {
-        columns = new Array(parseInt(fluidInputNumber.value)).fill(col);
+    renderColumns = () => {  
+        if(fixedCol.checked) {
+            input = fixedInputNumber;
+        } else if(fluidCol.checked) {
+            input = fluidInputNumber;
+        }
+         
+        console.log(input);
+
+        columns = new Array(parseInt(input.value)).fill(col);
                 
         if(columns[0].indexOf('ml') !== -1 ) {
             columns[0] = columns[0].replace(`ml${responsiveSpacer}${spaceWidth}`,'');    
@@ -109,7 +130,6 @@
         if(columns[columns.length - 1].indexOf('mr') !== -1) {
             columns[columns.length - 1] = columns[columns.length - 1].replace(`mr${responsiveSpacer}${spaceWidth}`,'');
         }
-
         return columns;
     }
 
@@ -131,14 +151,16 @@
     }
     
     generateCode = () => {
-        if (!fluidInputNumber.value){
+        
+        if( fluidCol.checked && !fluidInputNumber.value ||  fixedCol.checked && !fixedInputNumber.value) {
             alert('Select column value');
-        } else if(fluidInputNumber.value < 0){
+        } else if(fluidCol.checked && fluidInputNumber.value < 0 ){
             fluidInputNumber.value = '';
             alert('Only positive numbers');
         } else {
-            btnCopy.classList.remove('is-hidden');
-            showCode.classList.remove('is-hidden');
+            showItem(btnCopy);
+            showItem(showCode);
+            showItem(exampleContent);
             showExample();
             renderCol('notExample');
             renderColumns();

@@ -52,6 +52,7 @@
 </head>
 
 <body>
+    <!-- HEADER -->
     <header class="header row justify-content-center">
         <nav class="header-nav container row justify-content-between align-items-center">
             <a href="https://matheusbarone.com/" target="_blank" class="level-item" title="© 2017 Matheus Barone - Desenvolvedor Front-end | Todos os Direitos Reservados" rel="noopener">
@@ -75,11 +76,15 @@
             </nav>
         </nav>
     </header>
-    <section class="container main-content pl-4 pr-4">
+    <!-- HEADER -->
+
+    <!-- MAIN CONTENT -->
+    <section class="container main-content pl-4 pr-4 mt-5">
+
         <h1 class="card-title mt-3 mb-4 text-center">Bootstrap 4 - Row Generator</h1>
 
-        <h5 class="card-title mt-3 mb-3 text-center">1 - Select between <strong>Fluid</strong> or <strong>Fixed</strong> column width.</h5>
-
+        <!-- FLUID OR FIXED OPTIONS -->
+        <h5 class="card-title mt-3 mb-3 text-center">1 - <strong>Fluid</strong> or <strong>Fixed</strong> columns width?</h5>
         <div class="form-group row align-items-start justify-content-center mb-3">
             <div class="ml-md-2 mb-2 col-md-2 form-control">
                 <input class="fluid-col-input" type="radio" name="fluid-fixed-col" id="fluid-col" value="fluid-col">
@@ -94,14 +99,17 @@
                 </label>
               </div>
         </div>
+        <!-- FLUID OR FIXED OPTIONS -->
 
+        <!-- GENERATOR CONTENT -->
         <section class="generator-content is-hidden">
-            <h5 class="card-title mt-3 mb-3 text-center">2 - Set <strong>Number of Columns</strong>, <strong>Space Between Columns</strong> and if it is <strong>Responsive</strong> or <strong>not</strong>.</h5>
+            <h5 class="card-title mt-3 mb-3 text-center">2 - Choose <strong>how many columns</strong> and a few more <strong>optional settings</strong>:</h5>
             <div class="form-group row align-items-start justify-content-center mb-3">
                 <input type="number" class="form-control columns-fluid-input mb-1 col-md-2 is-hidden" placeholder="Number of Columns">
                 <select class="form-control columns-fixed-input mb-1 col-md-2 is-hidden">
                     <option value="number-of-columns">Number of Columns</option>
                     <option value="2">2</option>
+                    <option value="3">3</option>
                     <option value="4">4</option>
                     <option value="6">6</option>
                     <option value="12">12</option>
@@ -128,8 +136,9 @@
                 </div>
             </div>
         </section>
+        <!-- GENERATOR CONTENT -->
 
-
+        <!-- BUTTONS -->
         <div class="is-hidden buttons-row">
             <h5 class="card-title mt-3 mb-3 text-center">3 - <strong>Generate</strong> your code</h5>
             <div class="row align-items-start justify-content-center  mb-3">            
@@ -139,17 +148,34 @@
                 </div>
             </div>
         </div>
-
-
-        <div class="example mb-4 row"></div>
-
-        <div class="row">
-            <textarea class="form-control is-hidden show-code col"></textarea>
+        <!-- BUTTONS -->      
+        
+        
+        <!-- CODE -->
+        <div class="code-content mt-4 mb-3">
+            <div class="row">
+                    <textarea class="form-control is-hidden show-code col"></textarea>
+            </div>
+            <div class="row justify-content-end mt-3">
+                    <button class="btn-copy btn btn-secondary is-hidden">Copy to Clipboard</button>
+            </div>
         </div>
-        <div class="row justify-content-end mt-3">
-                <button class="btn-copy btn btn-secondary is-hidden">Copy to Clipboard</button>
+
+        <!-- CODE -->
+
+        <!-- EXAMPLE -->
+        <div class="example-content mt-3 mb-3 is-hidden">
+            <h5 class="card-title text-center">Example</h5>
+            <div class="example mb-4 row"></div>
         </div>
+        
+        <!-- EXAMPLE -->
+
+
     </section>
+    <!-- MAIN CONTENT -->
+
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <div class="content text-center">
@@ -191,6 +217,8 @@
             </div>
         </div>
     </footer>
+    <!-- FOOTER -->
+
     <script src="script.js"></script>
 </body>
 
