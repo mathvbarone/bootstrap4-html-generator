@@ -128,8 +128,6 @@
         } else if(fluidCol.checked) {
             input = fluidInputNumber;
         }
-         
-        console.log(input);
 
         columns = new Array(parseInt(input.value)).fill(col);
                 
