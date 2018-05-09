@@ -2,6 +2,7 @@
 (() => {
     const fluidCol = document.querySelector('.fluid-col-input');
     const fixedCol = document.querySelector('.fixed-col-input');
+    const columnWidth = document.querySelector('.column-width');
     const fluidInputNumber = document.querySelector('.columns-fluid-input');
     const fixedInputNumber = document.querySelector('.columns-fixed-input');
     const generateButton = document.querySelector('.generate-button');
@@ -82,9 +83,9 @@
         }
 
         if ( responsiveInput.checked && fixedCol.checked ) {
-            responsiveClass = `col-md-${ 12 / fixedInputNumber.value}`;
+            responsiveClass = `col-md-${ columnWidth.value}`;
         } else if (!responsiveInput.checked && fixedCol.checked) {
-            responsiveClass = `col-${ 12 / fixedInputNumber.value }`;
+            responsiveClass = `col-${columnWidth.value }`;
         }
         
                
