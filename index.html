@@ -66,102 +66,107 @@
                     </g>
                  </svg>
             </a>
-
-            <nav class="menu col row justify-content-end align-items-center">
-                <ul class="menu-list row align-items-center">
-                    <li class="menu-item">
-                        <a href="https://github.com/mathvbarone/bootstrap4-row-generator" target="_blank" class="btn menu-btn btn-dark" title="Github" rel="noopener">Github <i class="fa fa-github" aria-hidden="true"></i></a>
-                    </li>
-                </ul>
-            </nav>
+            <h1 class="card-title text-center">Bootstrap 4 - Row Generator</h1>
+            <a href="https://github.com/mathvbarone/bootstrap4-row-generator" target="_blank" class="btn menu-btn btn-dark" title="Github" rel="noopener">Github <i class="fa fa-github" aria-hidden="true"></i></a>
         </nav>
     </header>
     <!-- HEADER -->
 
     <!-- MAIN CONTENT -->
-    <section class="container main-content pl-4 pr-4 mt-5">
-
-        <h1 class="card-title mt-3 mb-4 text-center">Bootstrap 4 - Row Generator</h1>
-
-        <!-- FLUID OR FIXED OPTIONS -->
-        <h5 class="card-title mt-3 mb-3 text-center">1 - <strong>Fluid</strong> or <strong>Fixed</strong> columns width?</h5>
-        <div class="form-group row align-items-start justify-content-center mb-3">
-            <div class="ml-md-2 mb-2 col-md-2 form-control">
-                <input class="fluid-col-input" type="radio" name="fluid-fixed-col" id="fluid-col" value="fluid-col">
-                <label class="form-check-label" for="fluid-col">
-                  Fluid Col Width
-                </label>
-              </div>
-              <div class="ml-md-2 mb-2 col-md-2 form-control">
-                <input class="fixed-col-input" type="radio" name="fluid-fixed-col" id="fixed-col" value="fixed-col">
-                <label class="form-check-label" for="fixed-col">
-                  Fixed Col Width
-                </label>
-              </div>
-        </div>
-        <!-- FLUID OR FIXED OPTIONS -->
-
-        <!-- GENERATOR CONTENT -->
-        <section class="generator-content is-hidden">
-            <h5 class="card-title mt-3 mb-3 text-center">2 - Choose <strong>how many columns</strong> and a few more <strong>optional settings</strong>:</h5>
+    <section class="main-content">
+        <!-- GENERATOR -->
+        <div>
+            <!-- FLUID OR FIXED OPTIONS -->
+            <h5 class="card-title mt-3 mb-3 text-center">1 - <strong>Fluid</strong> or <strong>Fixed</strong> columns width?</h5>
             <div class="form-group row align-items-start justify-content-center mb-3">
-                <input type="number" class="form-control columns-fluid-input mb-1 col-md-2 is-hidden" placeholder="Number of Columns">
-                <select class="form-control columns-fixed-input mb-1 col-md-2 is-hidden">
-                    <option value="number-of-columns">Number of Columns</option>
-                    <option value="2">2 Cols</option>
-                    <option value="3">3 Cols</option>
-                    <option value="4">4 Cols</option>
-                    <option value="6">6 Cols</option>
-                    <option value="12">12 Cols</option>
-                </select>
-                <select type="number" class="form-control column-width-input ml-md-2 mb-2 col-md-2 is-hidden">
-                        <option value="width-of-columns">Width of Columns</option>
-                        <option value="1">col-1</option>
-                        <option value="2">col-2</option>
-                        <option value="3">col-3</option>
-                        <option value="4">col-4</option>
-                        <option value="6">col-6</option>
-                        <option value="12">col-12</option>
-                </select>
-                <div class="ml-md-2 mb-2 col-md-3 form-control">
-                    <input class="check-columns-space mr-1" type="checkbox" id="space-between-id">
-                    <label class="form-check-label" for="space-between-id">Space Between Columns</label>
+                <div class="ml-md-2 mb-2 col-md-2 form-control">
+                    <input class="fluid-col-input" type="radio" name="fluid-fixed-col" id="fluid-col" value="fluid-col">
+                    <label class="form-check-label" for="fluid-col">
+                        Fluid Col Width
+                    </label>
+                    </div>
+                    <div class="ml-md-2 mb-2 col-md-2 form-control">
+                    <input class="fixed-col-input" type="radio" name="fluid-fixed-col" id="fixed-col" value="fixed-col">
+                    <label class="form-check-label" for="fixed-col">
+                        Fixed Col Width
+                    </label>
+                    </div>
+            </div>
+            <!-- FLUID OR FIXED OPTIONS -->
+    
+            <!-- GENERATOR CONTENT -->
+            <section class="generator-content">
+                <h5 class="card-title mt-3 mb-3 text-center">2 - Choose <strong>how many columns</strong> and a few more <strong>optional settings</strong>:</h5>
+                <div class="form-group row align-items-start justify-content-center mb-3">
+                    <input type="number" class="form-control columns-fluid-input mb-1 col-md-2 is-hidden" placeholder="Number of Columns">
+                    <select class="form-control columns-fixed-input mb-1 col-md-2 is-hidden">
+                        <option value="number-of-columns">Number of Columns</option>
+                        <option value="2">2 Cols</option>
+                        <option value="3">3 Cols</option>
+                        <option value="4">4 Cols</option>
+                        <option value="6">6 Cols</option>
+                        <option value="12">12 Cols</option>
+                    </select>
+                    <select type="number" class="form-control column-width-input ml-md-2 mb-2 col-md-2 is-hidden">
+                            <option value="width-of-columns">Width of Columns</option>
+                            <option value="1">col-1</option>
+                            <option value="2">col-2</option>
+                            <option value="3">col-3</option>
+                            <option value="4">col-4</option>
+                            <option value="6">col-6</option>
+                            <option value="12">col-12</option>
+                    </select>
+                    <div class="ml-md-2 mb-2 col-md-3 form-control">
+                        <input class="check-columns-space mr-1" type="checkbox" id="space-between-id">
+                        <label class="form-check-label" for="space-between-id">Space Between Columns</label>
+                    </div>
+                    <select class="columns-space is-hidden ml-md-2 mb-2 col-md-2 form-control">
+                        <option value="space-columns-left">Space Left</option>
+                        <option value="space-columns-right">Space Right</option>
+                        <option value="space-columns-left-right">Space Left And Right</option>
+                    </select>
+                    <select class="space-width is-hidden ml-md-2 mb-2 col-md-2 form-control">
+                        <option value="1">Size 1</option>
+                        <option value="2">Size 2</option>
+                        <option value="3">Size 3</option>
+                        <option value="4">Size 4</option>
+                        <option value="5">Size 5</option>
+                    </select>
+                    <div class="columns-space ml-md-2 mb-2 col-md-2 form-control">
+                        <input class="is-responsive mr-1" type="checkbox" id="is-responsive-id">
+                        <label class="form-check-label" for="is-responsive-id">Responsive</label>
+                    </div>
                 </div>
-                <select class="columns-space is-hidden ml-md-2 mb-2 col-md-2 form-control">
-                    <option value="space-columns-left">Space Left</option>
-                    <option value="space-columns-right">Space Right</option>
-                    <option value="space-columns-left-right">Space Left And Right</option>
-                </select>
-                <select class="space-width is-hidden ml-md-2 mb-2 col-md-2 form-control">
-                    <option value="1">Size 1</option>
-                    <option value="2">Size 2</option>
-                    <option value="3">Size 3</option>
-                    <option value="4">Size 4</option>
-                    <option value="5">Size 5</option>
-                </select>
-                <div class="columns-space ml-md-2 mb-2 col-md-2 form-control">
-                    <input class="is-responsive mr-1" type="checkbox" id="is-responsive-id">
-                    <label class="form-check-label" for="is-responsive-id">Responsive</label>
+            </section>
+            <!-- GENERATOR CONTENT -->
+    
+            <!-- BUTTONS -->
+            <div class="buttons-row">
+                <h5 class="card-title mt-3 mb-3 text-center">3 - <strong>Generate</strong> your code</h5>
+                <div class="row align-items-start justify-content-center  mb-3">            
+                    <div class="col-md-4 row">
+                        <button type="submit" class="clean-button col btn mr-2 btn-danger">Clean</button>
+                        <button type="submit" class="generate-button col  btn btn-success">Generate</button> 
+                    </div>
                 </div>
             </div>
-        </section>
-        <!-- GENERATOR CONTENT -->
-
-        <!-- BUTTONS -->
-        <div class="is-hidden buttons-row">
-            <h5 class="card-title mt-3 mb-3 text-center">3 - <strong>Generate</strong> your code</h5>
-            <div class="row align-items-start justify-content-center  mb-3">            
-                <div class="col-md-4 row">
-                    <button type="submit" class="clean-button col btn mr-2 btn-danger">Clean</button>
-                    <button type="submit" class="generate-button col  btn btn-success">Generate</button> 
-                </div>
+            <!-- BUTTONS -->      
+            
+            
+    
+    
+            <!-- EXAMPLE -->
+            <div class="example-content mt-3 mb-3 is-hidden">
+                <h5 class="card-title text-center">Example</h5>
+                <div class="example mb-4 row"></div>
             </div>
+            
+            <!-- EXAMPLE -->
         </div>
-        <!-- BUTTONS -->      
-        
-        
+        <!-- GENERATOR -->
         <!-- CODE -->
-        <div class="code-content mt-4 mb-3">
+        <div class="code-content">
+            <h5 class="card-title text-center">Generated Code</h5>    
             <div class="row">
                     <textarea class="form-control is-hidden show-code col"></textarea>
             </div>
@@ -169,18 +174,7 @@
                     <button class="btn-copy btn btn-secondary is-hidden">Copy to Clipboard</button>
             </div>
         </div>
-
         <!-- CODE -->
-
-        <!-- EXAMPLE -->
-        <div class="example-content mt-3 mb-3 is-hidden">
-            <h5 class="card-title text-center">Example</h5>
-            <div class="example mb-4 row"></div>
-        </div>
-        
-        <!-- EXAMPLE -->
-
-
     </section>
     <!-- MAIN CONTENT -->
 

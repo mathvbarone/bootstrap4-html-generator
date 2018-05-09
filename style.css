@@ -12,16 +12,14 @@ label {
     cursor: pointer;
 }
 
+
 /* HEADER */
 
 .header {
-    z-index: 10;
     box-shadow: 0 3px 5px rgba(0,0,0,.12);
     padding: 5px 10px;
-    top: 0;
     background: #fff;
     transition: linear .3s all;
-    position: fixed;
     width: 100%;
     margin: 0;
 }
@@ -99,15 +97,26 @@ label {
 /* CONTENT */
 
 .main-content {
-    min-height: calc(100vh - 129px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    position: relative;
+}
+
+.code-content{
+    width: 420px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 45px;
+    background:#343a40;
 }
 
 
 .show-code {
-    height: 160px;
+    width: 420px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 45px;
+    background-color: #242424;
 }
 
 .col-example {
