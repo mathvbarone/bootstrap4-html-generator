@@ -2,7 +2,7 @@
 (() => {
     const fluidCol = document.querySelector('.fluid-col-input');
     const fixedCol = document.querySelector('.fixed-col-input');
-    const columnWidth = document.querySelector('.column-width');
+    const columnWidth = document.querySelector('.column-width-input');
     const fluidInputNumber = document.querySelector('.columns-fluid-input');
     const fixedInputNumber = document.querySelector('.columns-fixed-input');
     const generateButton = document.querySelector('.generate-button');
@@ -42,7 +42,14 @@
             showItem(generatorContent);
         }
         fluidCol.checked ? showItem(fluidInputNumber) : hideItem(fluidInputNumber);        
-        fixedCol.checked ? showItem(fixedInputNumber) : hideItem(fixedInputNumber);
+        
+        if(fixedCol.checked) {
+            showItem(fixedInputNumber)
+            showItem(columnWidth);
+        } else {
+            hideItem(columnWidth);
+            hideItem(fixedInputNumber);
+        } 
     }
 
     
@@ -53,7 +60,9 @@
         hideItem(columnsSpace);
         hideItem(btnCopy);
         hideItem(exampleContent);
-        fluidInputNumber.value = ''
+        fluidInputNumber.value = '';
+        fixedInputNumber.value = 'number-of-columns';
+        columnWidth.value = 'width-of-columns';
         example.innerHTML = '';
         responsiveInput.checked = false;
         checkColumnsSpace.checked = false;
