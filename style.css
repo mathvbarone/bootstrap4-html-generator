@@ -4,8 +4,10 @@
     padding: 0;
 }
 
-body {
-    min-height: 100vh;
+body,
+html {
+    height: 100%;
+    background: #1a1a1a;
 }
 
 label {
@@ -100,24 +102,25 @@ label {
     position: relative;
 }
 
-.code-content{
-    width: 420px;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 45px;
-    background:#343a40;
+
+.settings{
+    color: #fff;
 }
 
 
-.show-code {
-    width: 420px;
+
+.code {
+    width: 360px;
     position: absolute;
     top: 0px;
     right: 0px;
     bottom: 45px;
     background-color: #242424;
 }
+
+
+
+
 
 .col-example {
     height: 100px;

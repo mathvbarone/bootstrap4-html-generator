@@ -16,7 +16,6 @@
   const checkColumnsSpace = document.querySelector('.check-columns-space');
   const generatorContent = document.querySelector('.generator-content');
   const btnCopy = document.querySelector('.btn-copy');
-  const btnRows = document.querySelector('.buttons-row');
   let input;
   let col;
   let columns;
