@@ -77,38 +77,43 @@
     <!-- MAIN CONTENT -->
     <section class="main-content">
         <section class="settings">
-            <!-- FLUID OR FIXED OPTIONS -->
-            <h5 class="card-title mt-3 mb-3 text-center">1 - <strong>Fluid</strong> or <strong>Fixed</strong> columns width?</h5>
-            <div class="form-group row align-items-start justify-content-center mb-3">
-                <div class="ml-md-2 mb-2 col-md-2 form-control">
-                    <input class="fluid-col-input" type="radio" name="fluid-fixed-col" id="fluid-col" value="fluid-col">
-                    <label class="form-check-label" for="fluid-col">
-                        Fluid Col Width
-                    </label>
-                    </div>
-                    <div class="ml-md-2 mb-2 col-md-2 form-control">
-                    <input class="fixed-col-input" type="radio" name="fluid-fixed-col" id="fixed-col" value="fixed-col">
-                    <label class="form-check-label" for="fixed-col">
-                        Fixed Col Width
-                    </label>
-                    </div>
-            </div>
-            <!-- FLUID OR FIXED OPTIONS -->
-    
-            <!-- GENERATOR CONTENT -->
-            <section class="generator-content">
-                <h5 class="card-title mt-3 mb-3 text-center">2 - Choose <strong>how many columns</strong> and a few more <strong>optional settings</strong>:</h5>
+            <h3 class="card-title main-title main-title-settings">Settings</h3>
+            <div class="inner">
+                <!-- FLUID OR FIXED OPTIONS -->
+                <h4 class="card-title mt-3 mb-3 text-center">1 -
+                    <strong>Fluid</strong> or
+                    <strong>Fixed</strong> columns width?</h4>
                 <div class="form-group row align-items-start justify-content-center mb-3">
-                    <input type="number" class="form-control columns-fluid-input mb-1 col-md-2 is-hidden" placeholder="Number of Columns">
-                    <select class="form-control columns-fixed-input mb-1 col-md-2 is-hidden">
-                        <option value="number-of-columns">Number of Columns</option>
-                        <option value="2">2 Cols</option>
-                        <option value="3">3 Cols</option>
-                        <option value="4">4 Cols</option>
-                        <option value="6">6 Cols</option>
-                        <option value="12">12 Cols</option>
-                    </select>
-                    <select type="number" class="form-control column-width-input ml-md-2 mb-2 col-md-2 is-hidden">
+                    <div class="ml-md-2 mb-2 col-md-3 form-control">
+                        <input class="fluid-col-input" type="radio" name="fluid-fixed-col" id="fluid-col" value="fluid-col" checked>
+                        <label class="form-check-label" for="fluid-col">
+                            Fluid Col Width
+                        </label>
+                    </div>
+                    <div class="ml-md-2 mb-2 col-md-3 form-control">
+                        <input class="fixed-col-input" type="radio" name="fluid-fixed-col" id="fixed-col" value="fixed-col">
+                        <label class="form-check-label" for="fixed-col">
+                            Fixed Col Width
+                        </label>
+                    </div>
+                </div>
+    
+    
+                <h4 class="card-title mt-3 mb-3 text-center">2 - Choose
+                    <strong>how many columns</strong> and a few more
+                    <strong>optional settings</strong>:</h4>
+    
+                <div class="form-group row align-items-start justify-content-center mb-3">
+                        <input type="number" class="form-control columns-fluid-input mb-1 col-md-3" placeholder="Number of Columns">
+                        <select class="form-control columns-fixed-input mb-1 col-md-3 is-hidden">
+                            <option value="number-of-columns">Number of Columns</option>
+                            <option value="2">2 Cols</option>
+                            <option value="3">3 Cols</option>
+                            <option value="4">4 Cols</option>
+                            <option value="6">6 Cols</option>
+                            <option value="12">12 Cols</option>
+                        </select>
+                        <select type="number" class="form-control column-width-input ml-md-2 mb-2 col-md-3 is-hidden">
                             <option value="width-of-columns">Width of Columns</option>
                             <option value="1">col-1</option>
                             <option value="2">col-2</option>
@@ -116,97 +121,114 @@
                             <option value="4">col-4</option>
                             <option value="6">col-6</option>
                             <option value="12">col-12</option>
+                        </select>
+                </div>
+
+
+                <div class="form-group row align-items-start justify-content-center mb-3">
+                    <select class="columns-space ml-md-2 mb-2 col-md-3 form-control">
+                        <option value="space-columns">Gap Between Columns</option>
+                        <option value="space-columns-left">Gap Left</option>
+                        <option value="space-columns-right">Gap Right</option>
+                        <option value="space-columns-left-right">Gap Left And Right</option>
                     </select>
-                    <div class="ml-md-2 mb-2 col-md-3 form-control">
-                        <input class="check-columns-space mr-1" type="checkbox" id="space-between-id">
-                        <label class="form-check-label" for="space-between-id">Space Between Columns</label>
-                    </div>
-                    <select class="columns-space is-hidden ml-md-2 mb-2 col-md-2 form-control">
-                        <option value="space-columns-left">Space Left</option>
-                        <option value="space-columns-right">Space Right</option>
-                        <option value="space-columns-left-right">Space Left And Right</option>
-                    </select>
-                    <select class="space-width is-hidden ml-md-2 mb-2 col-md-2 form-control">
-                        <option value="1">Size 1</option>
-                        <option value="2">Size 2</option>
-                        <option value="3">Size 3</option>
-                        <option value="4">Size 4</option>
-                        <option value="5">Size 5</option>
+                    <select class="space-width ml-md-2 mb-2 is-hidden col-md-2 form-control">
+                        <option value="1">Gap Size 1</option>
+                        <option value="2">Gap Size 2</option>
+                        <option value="3">Gap Size 3</option>
+                        <option value="4">Gap Size 4</option>
+                        <option value="5">Gap Size 5</option>
                     </select>
                     <div class="columns-space ml-md-2 mb-2 col-md-2 form-control">
                         <input class="is-responsive mr-1" type="checkbox" id="is-responsive-id">
                         <label class="form-check-label" for="is-responsive-id">Responsive</label>
                     </div>
+                    <!-- GENERATOR CONTENT -->
                 </div>
-            </section>
-            <!-- GENERATOR CONTENT -->
-    
-            <!-- BUTTONS -->
-            <div class="buttons-row">
-                <!-- <h5 class="card-title mt-3 mb-3 text-center">3 - <strong>Generate</strong> your code</h5>
-                <button type="submit" class="clean-button col btn mr-2 btn-danger">Clean</button>
-                <button type="submit" class="generate-button col  btn btn-success">Generate</button>  -->
-            </div>
-            <!-- BUTTONS -->      
-                        
-                        
 
+                <!-- BUTTONS -->
+                <div class="buttons-row">
+                    <h4 class="card-title mt-3 mb-3 text-center">3 -
+                        <strong>Generate</strong> your code</h4>
+                    <div class="row justify-content-center">
+                        <button type="submit" class="clean-button col-md-2 btn mr-2 btn-danger">Clean</button>
+                        <button type="submit" class="generate-button col-md-2 btn btn-success">Generate</button>
+                    </div>
+    
+                </div>
+                <!-- BUTTONS -->
+
+            </div>
+    
             <!-- EXAMPLE -->
             <div class="example-content mt-3 mb-3 is-hidden">
-                <h5 class="card-title text-center">Example</h5>
+                <h4 class="card-title text-center">Example</h4>
                 <div class="example mb-4 row"></div>
             </div>
         </section>
         <section class="code">
-
-        </section>
-
-    </section>
-    <!-- MAIN CONTENT -->
-
-    <!-- FOOTER -->
-    <footer class="footer">
-            <div class="container">
-                <div class="content text-center">
-                    <span class="footer-infos">
-                        © 2018 Matheus Barone | Software Engineer
-                    </span>                
-                    <ul class="redes row justify-content-center">
-                        <li class="redes-item">
-                            <a class="redes-link is-blank" href="https://www.matheusbarone.com" target="_blank" title="Matheus Barone - Website" rel="noopener">
-                                <i class="fa fa-at" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li class="redes-item">
-                            <a class="redes-link is-blank" href="https://www.facebook.com/matheusvbarone" target="_blank" title="Matheus Barone - Facebook" rel="noopener">
-                                <i class="fa fa-facebook" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li class="redes-item">
-                            <a class="redes-link is-blank" href="https://github.com/mathvbarone" target="_blank" title="Matheus Barone - Github" rel="noopener">
-                                <i class="fa fa-github" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li class="redes-item">
-                            <a class="redes-link is-blank" href="https://twitter.com/matheusvbarone" target="_blank" title="Matheus Barone - Twitter" rel="noopener">
-                                <i class="fa fa-twitter" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li class="redes-item">
-                            <a class="redes-link is-blank" href="https://www.linkedin.com/in/matheusbarone/" target="_blank" title="Matheus Barone - Linkedin" rel="noopener">
-                                <i class="fa fa-linkedin" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li class="redes-item">
-                            <a class="redes-link is-blank" href="mailto:matheusvbarone@gmail.com" target="_blank" title="Matheus Barone - Email" rel="noopener">
-                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                    </ul>
+            <h3 class="card-title main-title main-title-code">Generated Code</h3>
+            <div class="inner">
+                <div class="code-content">
+                    <div class="row">
+                        <textarea class="form-control is-hidden show-code col"></textarea>
+                    </div>
+                    <div class="row justify-content-end mt-3">
+                        <button class="btn-copy btn btn-secondary is-hidden">Copy to Clipboard</button>
+                    </div>
                 </div>
             </div>
-        </footer>
-        <!-- FOOTER -->
+        </section>
+    
+    </section>
+    <!-- MAIN CONTENT -->
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="content text-center">
+                <span class="footer-infos">
+                    © 2018 Matheus Barone | Software Engineer
+                </span>
+                <ul class="redes row justify-content-center">
+                    <li class="redes-item">
+                        <a class="redes-link is-blank" href="https://www.matheusbarone.com" target="_blank" title="Matheus Barone - Website" rel="noopener">
+                            <i class="fa fa-at" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li class="redes-item">
+                        <a class="redes-link is-blank" href="https://www.facebook.com/matheusvbarone" target="_blank" title="Matheus Barone - Facebook"
+                            rel="noopener">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li class="redes-item">
+                        <a class="redes-link is-blank" href="https://github.com/mathvbarone" target="_blank" title="Matheus Barone - Github" rel="noopener">
+                            <i class="fa fa-github" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li class="redes-item">
+                        <a class="redes-link is-blank" href="https://twitter.com/matheusvbarone" target="_blank" title="Matheus Barone - Twitter"
+                            rel="noopener">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li class="redes-item">
+                        <a class="redes-link is-blank" href="https://www.linkedin.com/in/matheusbarone/" target="_blank" title="Matheus Barone - Linkedin"
+                            rel="noopener">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li class="redes-item">
+                        <a class="redes-link is-blank" href="mailto:matheusvbarone@gmail.com" target="_blank" title="Matheus Barone - Email" rel="noopener">
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER -->
 
     <script src="script.js"></script>
 </body>

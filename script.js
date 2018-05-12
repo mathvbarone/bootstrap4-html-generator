@@ -1,4 +1,3 @@
-
 (() => {
   const fluidCol = document.querySelector('.fluid-col-input');
   const fixedCol = document.querySelector('.fixed-col-input');
@@ -13,8 +12,6 @@
   const showCode = document.querySelector('.show-code');
   const responsiveInput = document.querySelector('.is-responsive');
   const spaceWidthInput = document.querySelector('.space-width');
-  const checkColumnsSpace = document.querySelector('.check-columns-space');
-  const generatorContent = document.querySelector('.generator-content');
   const btnCopy = document.querySelector('.btn-copy');
   let input;
   let col;
@@ -24,7 +21,7 @@
   let responsiveSpacer;
 
 
-  toggleItem = (item) => {
+  toggleItem = item => {
     if (item.classList.contains('is-hidden')) {
       item.classList.remove('is-hidden');
     } else {
@@ -34,6 +31,11 @@
 
   showItem = item => item.classList.remove('is-hidden');
   hideItem = item => item.classList.add('is-hidden');
+
+
+  showGapSize = () => {
+    columnsSpace.value !== 'space-columns' ? showItem(spaceWidthInput) : '';
+  };
 
   showContent = () => {
     fluidCol.checked ? showItem(fluidInputNumber) : hideItem(fluidInputNumber);
@@ -48,7 +50,7 @@
   };
 
 
-  cleanCode = (e) => {
+  cleanCode = e => {
     e.preventDefault();
     hideItem(spaceWidthInput);
     hideItem(showCode);
@@ -60,22 +62,12 @@
     columnWidth.value = 'width-of-columns';
     example.innerHTML = '';
     responsiveInput.checked = false;
-    checkColumnsSpace.checked = false;
     showCode.innerHTML = '';
     spaceWidthInput.value = 'set-space-width';
   };
 
-  showSpacesBetween = () => {
-    if (checkColumnsSpace.checked) {
-      spaceWidthInput.classList.remove('is-hidden');
-      columnsSpace.classList.remove('is-hidden');
-    } else {
-      spaceWidthInput.classList.add('is-hidden');
-      columnsSpace.classList.add('is-hidden');
-    }
-  };
 
-  renderCol = (exampleClass) => {
+  renderCol = exampleClass => {
     exampleClass === 'isExample' ? exampleClass = 'col-example' : exampleClass = '';
     responsiveInput.checked ? responsiveSpacer = '-md' : responsiveSpacer = '';
     spaceWidth = `-${spaceWidthInput.value}`;
@@ -123,6 +115,8 @@
     } else if (fluidCol.checked) {
       input = fluidInputNumber;
     }
+
+    console.log(input);
 
     columns = new Array(parseInt(input.value)).fill(col);
 
@@ -181,9 +175,9 @@
   };
 
   init = () => {
+    columnsSpace.addEventListener('change', showGapSize);
     fluidCol.addEventListener('click', showContent);
     fixedCol.addEventListener('click', showContent);
-    checkColumnsSpace.addEventListener('change', showSpacesBetween);
     generateButton.addEventListener('click', generateCode);
     cleanButton.addEventListener('click', cleanCode);
     btnCopy.addEventListener('click', copyContent);
