@@ -92,7 +92,7 @@
 
 
   renderCol = exampleClass => {
-    exampleClass === 'isExample' ? exampleClass = 'col-example' : exampleClass = '';
+    exampleClass === 'isExample' ? exampleClass = 'col-example' : exampleClass = ''; 
     responsiveInput.checked ? responsiveSpacer = '-md' : responsiveSpacer = '';
     spaceWidth = `-${spaceWidthInput.value}`;
 
@@ -155,7 +155,7 @@
     return columns;
   };
 
-  renderRow = exampleClass => {
+  renderCode = exampleClass => {
     renderColumns(exampleClass);
 
     switch (alignHor.value) {
@@ -199,14 +199,18 @@
     closeRow = [
       `  </div>
           `];
-  }
 
-
-  renderCode = exampleClass => {
-    renderRow(exampleClass);
     code = openRow.concat(columns, closeRow).join('');
+    code = beautify.html(htmlContent, {
+      indent_size: 4,
+      wrap_line_length: 100,
+      max_preserve_newlines: 0,
+    });
+
     return code;
   }
+
+
 
 
   showExample = () => {
@@ -216,12 +220,9 @@
 
   copyContent = (e) => {
     e.preventDefault;
-    if (fluidInputNumber.value) {
-      showCode.select();
-      document.execCommand('Copy');
-      alert('Code copied to your clipboard!');
-    }
-
+    showCode.select();
+    document.execCommand('Copy');
+    alert('Code copied to your clipboard!');
   };
 
 
@@ -232,7 +233,7 @@
       } else if (fluidInputNumber.value < 0) {
         message = 'Only positive numbers';
       }
-      return message;
+      return true;
     }
 
     if (fluidFixedCol.value === 'fixed-col') {
@@ -241,7 +242,7 @@
       } else if (columnWidth.value === 'width-of-columns') {
         message = 'Select Column Size';
       }      
-      return message;
+      return true;
     }    
 
     return false;
@@ -255,7 +256,6 @@
     } else {
       showItem(btnCopy);
       showItem(showCode);
-      showExample();
       renderCode('notExample');
       showCode.innerHTML = code;
       return false;
@@ -265,6 +265,7 @@
   init = () => {
     columnsSpace.addEventListener('change', showGapSize);
     fluidFixedCol.addEventListener('click', showContent);
+    generateButton.addEventListener('click', showExample);
     generateButton.addEventListener('click', generateCode);
     cleanButton.addEventListener('click', cleanCode);
     btnCopy.addEventListener('click', copyContent);
