@@ -3,8 +3,6 @@ import style from "./main.css";
 
 (() => {
 
-    console.log('webpack');
-
     // COLS VARIABLES
     const fluidFixedCol = document.querySelector('.fluid-fixed-col');
     const fluidInputNumber = document.querySelector('.columns-fluid-input');
@@ -28,9 +26,14 @@ import style from "./main.css";
   
     // EXAMPLE VARIABLES
     const example = document.querySelector('.example');
+    const exampleSection = document.querySelector('.example-section');
     const exampleContent = document.querySelector('.example-content');
     const showCode = document.querySelector('.show-code');
   
+
+    // CODE
+    const codeSection = document.querySelector('.code-section');
+
     // RESPONSIVE INPUT VARIABLE
     const responsiveInput = document.querySelector('.is-responsive');
   
@@ -63,6 +66,8 @@ import style from "./main.css";
       e.preventDefault();
       hideItem(spaceWidthInput);
       hideItem(btnCopy);
+      hide(codeSection);
+      hide(exampleSection);
       alignHor.value = 'set-hor-align';
       alignVert.value = 'set-vert-align';
       fluidInputNumber.value = '';
@@ -204,7 +209,7 @@ import style from "./main.css";
     //     max_preserve_newlines: 0,
     //   });
   
-      console.log(code);
+    console.log(code);
 
       return code;
     }
@@ -226,13 +231,14 @@ import style from "./main.css";
   
   
     const validateMsg = () => {
+      message = '';
+
       if (fluidFixedCol.value === 'fluid-col') {
         if (!fluidInputNumber.value) {
           message = 'Select column Value';
-        } else if (fluidInputNumber.value < 0) {
+        } else if (fluidInputNumber.value <= 0) {
           message = 'Only positive numbers';
         }
-        return message;
       }
   
       if (fluidFixedCol.value === 'fixed-col') {
@@ -241,22 +247,24 @@ import style from "./main.css";
         } else if (columnWidth.value === 'width-of-columns') {
           message = 'Select Column Size';
         }      
-        return message;
       }    
-  
-      return false;
+      return message;
     }
   
   
     const generateCode = () => {
       validateMsg();
       if (message) {
+
         alert(`${message}`);
       } else {
+        showExample();
         showItem(btnCopy);
         showItem(showCode);
         renderCode('notExample');
         showCode.innerHTML = code;
+        showItem(codeSection);
+        showItem(exampleSection);
         return false;
       }
     };
@@ -264,7 +272,6 @@ import style from "./main.css";
     const init = () => {
       columnsSpace.addEventListener('change', showGapSize);
       fluidFixedCol.addEventListener('click', showContent);
-      generateButton.addEventListener('click', showExample);
       generateButton.addEventListener('click', generateCode);
       cleanButton.addEventListener('click', cleanCode);
       btnCopy.addEventListener('click', copyContent);

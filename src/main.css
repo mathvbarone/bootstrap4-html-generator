@@ -92,14 +92,14 @@ label {
 }
               
 
+.main-content {
+    min-height: calc(100vh - 223px);
+}
 
 
 
 /* SETTINGS */
 
-.settings {
-    
-}
 
 .example-section {
     background: #dbdbdb;

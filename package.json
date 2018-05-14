@@ -1,6 +1,6 @@
 {
   "name": "bootstrap4-row-generator",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A Bootstrap 4 Row Generator",
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
