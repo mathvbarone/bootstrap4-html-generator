@@ -42,6 +42,7 @@
   let responsiveSpacer;
   let alignHorClass;
   let alignVertClass;
+  let message;
 
 
   toggleItem = item => {
@@ -203,7 +204,6 @@
 
   renderCode = exampleClass => {
     renderRow(exampleClass);
-    console.log(openRow);
     code = openRow.concat(columns, closeRow).join('');
     return code;
   }
@@ -224,13 +224,34 @@
 
   };
 
-  generateCode = () => {
 
-    if (fluidFixedCol.value === 'fluid-col' && !fluidInputNumber.value || fluidFixedCol.value === 'fixed-col' && !fixedInputNumber.value) {
-      alert('Select column value');
-    } else if (fluidFixedCol.value === 'fluid-col' && fluidInputNumber.value < 0) {
-      fluidInputNumber.value = '';
-      alert('Only positive numbers');
+  validateMsg = () => {
+    if (fluidFixedCol.value === 'fluid-col') {
+      if (!fluidInputNumber.value) {
+        message = 'Select column Value';
+      } else if (fluidInputNumber.value < 0) {
+        message = 'Only positive numbers';
+      }
+      return message;
+    }
+
+    if (fluidFixedCol.value === 'fixed-col') {
+      if (fixedInputNumber.value === 'number-of-columns') {
+        message = 'Select column Value';
+      } else if (columnWidth.value === 'width-of-columns') {
+        message = 'Select Column Size';
+      }      
+      return message;
+    }    
+
+    return false;
+  }
+
+
+  generateCode = () => {
+    validateMsg();
+    if (message) {
+      alert(`${message}`);
     } else {
       showItem(btnCopy);
       showItem(showCode);
