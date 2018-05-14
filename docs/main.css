@@ -1,0 +1,219 @@
+* {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+label {
+    cursor: pointer;
+}
+
+
+/* HEADER */
+
+.header {
+    box-shadow: 0 3px 5px rgba(0,0,0,.12);
+    padding: 5px 10px;
+    background: #fff;
+    transition: linear .3s all;
+    width: 100%;
+    margin: 0;
+}
+
+.header-nav {
+    width: 100%;
+    max-width: 1344px;
+}
+
+
+/* LOGO */
+
+.logo-link {
+    height: 35px;
+}
+
+.logo-simple .logo-simple-1 {
+    fill: #000200;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+    stroke-width: 2px;
+    transition: ease-in-out 0.2s all;
+}
+
+        
+.logo-simple .logo-simple-2 {
+    fill: none;
+}
+            
+
+.logo-simple  .logo-simple-3 {
+    fill: #fff;
+    transition: ease-in-out 0.2s all;
+}
+     
+
+.logo-simple:hover .logo-simple-1{
+    fill: #fff;
+    stroke: #000;
+}
+
+
+.logo-simple:hover .logo-simple-3{
+    fill: #000;
+}
+
+/* MENU */
+.menu-list {
+    margin: 0;
+}
+
+
+.meu-btn {
+    display: flex;
+    align-items: center;
+}
+
+.menu-btn .fa-github {
+    font-size: 20px;
+    margin-left: 3px;
+}
+
+.menu-link {
+    color: #000;
+    font-size: .95em;
+    margin-right: 20px;
+}
+
+.menu-link:hover {
+    text-decoration: none;
+    color: #cd2b46;
+}
+              
+
+
+
+
+/* SETTINGS */
+
+.settings {
+    
+}
+
+.example-section {
+    background: #dbdbdb;
+    width: 100%;
+    min-height: 200px;
+}
+
+.example {
+    width: 100%;
+    height: 200px;
+    background: #fff;
+}
+
+
+.col-example {
+    height: 100px;
+    background: #80bdff;
+    border-radius: .25rem;
+    border: 1px solid #fff;
+}
+
+.code-section {
+    background: #cd2b46;
+}
+
+.code-section .card-title {
+    color: #fff;
+}
+
+.show-code {
+    min-height: 200px;
+}
+
+.is-hidden {
+    display: none;
+}
+
+
+/* FOOTER */
+
+.footer {
+    padding: 20px 0;
+    color: #fff;
+    background-color: #4e4e4e;
+}
+
+.footer-site {
+    padding: 1em 0;
+    margin: 0;
+    color: #fff;
+    display: block;
+    font-size: .9em;
+}
+
+.footer-site:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.footer-phone .fa {
+    font-size: 1.4em;
+    padding-right: .4em;
+}
+
+.redes {
+    margin-top: 20px;
+}
+
+.redes-item {
+    margin: 0 .3em;
+}
+
+.redes-link {
+    color: #fff;
+}
+
+.redes-link .fa{
+    font-size: 1.2em;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 2px;
+    line-height: 1.6em;
+    transition: ease-in-out .2s all;
+} 
+
+.redes-link:hover .fa{
+    color: #fff;
+}
+
+.redes-link:hover .fa-at {
+    background: #cd2b46;
+}
+
+.redes-link:hover .fa-facebook {
+    background: #4267b2;
+}
+
+.redes-link:hover .fa-github {
+    background: #24292e;
+}
+
+.redes-link:hover .fa-twitter {
+    background: #1da1f2;
+}
+
+.redes-link:hover .fa-linkedin {
+    background: #0077b5;
+}
+
+.redes-link:hover .fa-envelope-o {
+    background: #C35163;
+}
+
+
+
+
