@@ -72,116 +72,112 @@
     </header>
     <!-- HEADER -->
 
+    <div class="container pt-5 pb-5 mt-3 settings">
+        <h2 class="card-title text-center main-title mb-3 main-title-settings">Settings</h2>
+    
+        <div class="row justify-content-center">
+            <div class="row col-md-9">
+                <select class="fluid-fixed-col form-control mr-md-2 col mb-1">
+                    <option value="fluid-col">Fluid Col</option>
+                    <option value="fixed-col">Fixed Col</option>
+                </select>
+    
+                <input type="number" class="form-control columns-fluid-input mb-2 col" placeholder="Number of Columns">
 
+                <select class="form-control columns-fixed-input mb-2 col is-hidden">
+                    <option value="number-of-columns">Number of Columns</option>
+                    <option value="2">2 Cols</option>
+                    <option value="3">3 Cols</option>
+                    <option value="4">4 Cols</option>
+                    <option value="6">6 Cols</option>
+                    <option value="12">12 Cols</option>
+                </select>
 
-    <!-- MAIN CONTENT -->
-    <section class="main-content">
-        <section class="settings">
-            <h3 class="card-title main-title main-title-settings">Settings</h3>
-            <div class="inner">
-                <!-- FLUID OR FIXED OPTIONS -->
-                <h4 class="card-title mt-3 mb-3 text-center">1 -
-                    <strong>Fluid</strong> or
-                    <strong>Fixed</strong> columns width?</h4>
-                <div class="form-group row align-items-start justify-content-center mb-3">
-                    <div class="ml-md-2 mb-2 col-md-3 form-control">
-                        <input class="fluid-col-input" type="radio" name="fluid-fixed-col" id="fluid-col" value="fluid-col" checked>
-                        <label class="form-check-label" for="fluid-col">
-                            Fluid Col Width
-                        </label>
-                    </div>
-                    <div class="ml-md-2 mb-2 col-md-3 form-control">
-                        <input class="fixed-col-input" type="radio" name="fluid-fixed-col" id="fixed-col" value="fixed-col">
-                        <label class="form-check-label" for="fixed-col">
-                            Fixed Col Width
-                        </label>
-                    </div>
-                </div>
+                <select type="number" class="form-control column-width-input ml-md-2 mb-2 col is-hidden">
+                    <option value="width-of-columns">Width of Columns</option>
+                    <option value="1">col-1</option>
+                    <option value="2">col-2</option>
+                    <option value="3">col-3</option>
+                    <option value="4">col-4</option>
+                    <option value="6">col-6</option>
+                    <option value="12">col-12</option>
+                </select>
+            </div>
+    
+            <div class="row col-md-9">
+    
+                <select class="columns-space mb-2 col form-control">
+                    <option value="space-columns">Gap Between Columns</option>
+                    <option value="space-columns-left">Gap Left</option>
+                    <option value="space-columns-right">Gap Right</option>
+                    <option value="space-columns-left-right">Gap Left And Right</option>
+                </select>              
     
     
-                <h4 class="card-title mt-3 mb-3 text-center">2 - Choose
-                    <strong>how many columns</strong> and a few more
-                    <strong>optional settings</strong>:</h4>
+                <select class="space-width ml-md-2 mb-2 is-hidden col form-control">
+                    <option value="1">Gap Size 1</option>
+                    <option value="2">Gap Size 2</option>
+                    <option value="3">Gap Size 3</option>
+                    <option value="4">Gap Size 4</option>
+                    <option value="5">Gap Size 5</option>
+                </select>
+
+                <select class="align-hor mb-2 ml-2 col form-control">
+                    <option value="set-hor-align">Horizontal Align</option>
+                    <option value="align-hor-left">Horizontal Align Left</option>
+                    <option value="align-hor-center">Horizontal Align Center</option>
+                    <option value="align-hor-right">Horizontal Align Right</option>
+                </select>  
+
+                <select class="align-vert mb-2 ml-2 col form-control">
+                    <option value="set-vert-align">Vertical Align</option>
+                    <option value="align-vert-top">Vertical Align Top</option>
+                    <option value="align-vert-center">Vertical Align Center</option>
+                    <option value="align-vert-bottom">Vertical Align Bottom</option>
+                </select>  
     
-                <div class="form-group row align-items-start justify-content-center mb-3">
-                        <input type="number" class="form-control columns-fluid-input mb-1 col-md-3" placeholder="Number of Columns">
-                        <select class="form-control columns-fixed-input mb-1 col-md-3 is-hidden">
-                            <option value="number-of-columns">Number of Columns</option>
-                            <option value="2">2 Cols</option>
-                            <option value="3">3 Cols</option>
-                            <option value="4">4 Cols</option>
-                            <option value="6">6 Cols</option>
-                            <option value="12">12 Cols</option>
-                        </select>
-                        <select type="number" class="form-control column-width-input ml-md-2 mb-2 col-md-3 is-hidden">
-                            <option value="width-of-columns">Width of Columns</option>
-                            <option value="1">col-1</option>
-                            <option value="2">col-2</option>
-                            <option value="3">col-3</option>
-                            <option value="4">col-4</option>
-                            <option value="6">col-6</option>
-                            <option value="12">col-12</option>
-                        </select>
-                </div>
-
-
-                <div class="form-group row align-items-start justify-content-center mb-3">
-                    <select class="columns-space ml-md-2 mb-2 col-md-3 form-control">
-                        <option value="space-columns">Gap Between Columns</option>
-                        <option value="space-columns-left">Gap Left</option>
-                        <option value="space-columns-right">Gap Right</option>
-                        <option value="space-columns-left-right">Gap Left And Right</option>
-                    </select>
-                    <select class="space-width ml-md-2 mb-2 is-hidden col-md-2 form-control">
-                        <option value="1">Gap Size 1</option>
-                        <option value="2">Gap Size 2</option>
-                        <option value="3">Gap Size 3</option>
-                        <option value="4">Gap Size 4</option>
-                        <option value="5">Gap Size 5</option>
-                    </select>
-                    <div class="columns-space ml-md-2 mb-2 col-md-2 form-control">
+                <div class="form-control col mb-2 ml-md-2">
                         <input class="is-responsive mr-1" type="checkbox" id="is-responsive-id">
                         <label class="form-check-label" for="is-responsive-id">Responsive</label>
-                    </div>
-                    <!-- GENERATOR CONTENT -->
                 </div>
 
-                <!-- BUTTONS -->
-                <div class="buttons-row">
-                    <h4 class="card-title mt-3 mb-3 text-center">3 -
-                        <strong>Generate</strong> your code</h4>
-                    <div class="row justify-content-center">
-                        <button type="submit" class="clean-button col-md-2 btn mr-2 btn-danger">Clean</button>
-                        <button type="submit" class="generate-button col-md-2 btn btn-success">Generate</button>
-                    </div>
-    
-                </div>
-                <!-- BUTTONS -->
+
 
             </div>
     
-            <!-- EXAMPLE -->
-            <div class="example-content mt-3 mb-3 is-hidden">
-                <h4 class="card-title text-center">Example</h4>
-                <div class="example mb-4 row"></div>
+            <div class="row col-md-9 justify-content-end">
+                <button type="submit" class="clean-button col-md-2 btn mr-2 btn-danger">Clean</button>
+                <button type="submit" class="generate-button col-md-2 btn btn-success">Generate</button>
             </div>
-        </section>
-        <section class="code">
-            <h3 class="card-title main-title main-title-code">Generated Code</h3>
-            <div class="inner">
-                <div class="code-content">
-                    <div class="row">
-                        <textarea class="form-control is-hidden show-code col"></textarea>
-                    </div>
-                    <div class="row justify-content-end mt-3">
-                        <button class="btn-copy btn btn-secondary is-hidden">Copy to Clipboard</button>
-                    </div>
+        </div>
+    
+
+    </div>
+
+    
+
+        <div class="example-section pt-5 pb-5">
+            <div class="container">
+                <h2 class="card-title text-center main-title main-title-settings mb-3">Example</h2>
+                <div class="example row pl-5 pr-5">
+
                 </div>
             </div>
-        </section>
+        </div>
+
+
+
+        <div class="code-section row col  pt-5 pb-5">
+            <div class="container">
+                <h2 class="card-title text-center main-title main-title-settings mb-3">Code</h2>
+                <textarea class="form-control show-code col"></textarea>
+                <button class="btn-copy btn btn-secondary is-hidden">Copy to Clipboard</button>
+            </div>
+        </div>
     
-    </section>
-    <!-- MAIN CONTENT -->
+    
+
+            
     
     <!-- FOOTER -->
     <footer class="footer">

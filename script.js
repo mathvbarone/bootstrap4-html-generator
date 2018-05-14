@@ -1,24 +1,47 @@
 (() => {
-  const fluidCol = document.querySelector('.fluid-col-input');
-  const fixedCol = document.querySelector('.fixed-col-input');
-  const columnWidth = document.querySelector('.column-width-input');
+
+  // COLS VARIABLES
+  const fluidFixedCol = document.querySelector('.fluid-fixed-col');
   const fluidInputNumber = document.querySelector('.columns-fluid-input');
   const fixedInputNumber = document.querySelector('.columns-fixed-input');
+
+  // COLUMNS VARIABLES
+  const columnWidth = document.querySelector('.column-width-input');
+  const columnsSpace = document.querySelector('.columns-space');
+
+  // SPACE BETWEEN COLUMNS VARIABLES
+  const spaceWidthInput = document.querySelector('.space-width');
+
+  // ALIGN
+  const alignHor = document.querySelector('.align-hor');
+  const alignVert = document.querySelector('.align-vert');
+
+  // BTNS VARIABLES
   const generateButton = document.querySelector('.generate-button');
   const cleanButton = document.querySelector('.clean-button');
-  const columnsSpace = document.querySelector('.columns-space');
+  const btnCopy = document.querySelector('.btn-copy');
+
+  // EXAMPLE VARIABLES
   const example = document.querySelector('.example');
   const exampleContent = document.querySelector('.example-content');
   const showCode = document.querySelector('.show-code');
+
+  // RESPONSIVE INPUT VARIABLE
   const responsiveInput = document.querySelector('.is-responsive');
-  const spaceWidthInput = document.querySelector('.space-width');
-  const btnCopy = document.querySelector('.btn-copy');
+
+  // REATTRIBUTABLE VARIABLES
   let input;
   let col;
   let columns;
+  let code;
+  let openRow;
+  
+  let closeRow;
   let spacerClass;
   let responsiveClass;
   let responsiveSpacer;
+  let alignHorClass;
+  let alignVertClass;
 
 
   toggleItem = item => {
@@ -37,26 +60,13 @@
     columnsSpace.value !== 'space-columns' ? showItem(spaceWidthInput) : '';
   };
 
-  showContent = () => {
-    fluidCol.checked ? showItem(fluidInputNumber) : hideItem(fluidInputNumber);
-
-    if (fixedCol.checked) {
-      showItem(fixedInputNumber);
-      showItem(columnWidth);
-    } else {
-      hideItem(columnWidth);
-      hideItem(fixedInputNumber);
-    }
-  };
-
 
   cleanCode = e => {
     e.preventDefault();
     hideItem(spaceWidthInput);
-    hideItem(showCode);
-    hideItem(columnsSpace);
     hideItem(btnCopy);
-    hideItem(exampleContent);
+    alignHor.value = 'set-hor-align';
+    alignVert.value = 'set-vert-align';
     fluidInputNumber.value = '';
     fixedInputNumber.value = 'number-of-columns';
     columnWidth.value = 'width-of-columns';
@@ -67,20 +77,33 @@
   };
 
 
+  showContent = () => {
+    fluidFixedCol.value === 'fluid-col' ? showItem(fluidInputNumber) : hideItem(fluidInputNumber);
+
+    if (fluidFixedCol.value === 'fixed-col') {
+      showItem(fixedInputNumber);
+      showItem(columnWidth);
+    } else {
+      hideItem(columnWidth);
+      hideItem(fixedInputNumber);
+    }
+  };
+
+
   renderCol = exampleClass => {
     exampleClass === 'isExample' ? exampleClass = 'col-example' : exampleClass = '';
     responsiveInput.checked ? responsiveSpacer = '-md' : responsiveSpacer = '';
     spaceWidth = `-${spaceWidthInput.value}`;
 
-    if (responsiveInput.checked && fluidCol.checked) {
+    if (responsiveInput.checked && fluidFixedCol.value === 'fluid-col') {
       responsiveClass = 'col-md';
-    } else if (!responsiveInput.checked && fluidCol.checked) {
+    } else if (!responsiveInput.checked && fluidFixedCol.value === 'fluid-col') {
       responsiveClass = 'col';
     }
 
-    if (responsiveInput.checked && fixedCol.checked) {
+    if (responsiveInput.checked && fluidFixedCol.value === 'fixed-col') {
       responsiveClass = `col-md-${columnWidth.value}`;
-    } else if (!responsiveInput.checked && fixedCol.checked) {
+    } else if (!responsiveInput.checked && fluidFixedCol.value === 'fixed-col') {
       responsiveClass = `col-${columnWidth.value}`;
     }
 
@@ -109,14 +132,15 @@
     return col;
   };
 
-  renderColumns = () => {
-    if (fixedCol.checked) {
+  renderColumns = exampleClass => {
+
+    renderCol(exampleClass);
+
+    if (fluidFixedCol.value === 'fixed-col') {
       input = fixedInputNumber;
-    } else if (fluidCol.checked) {
+    } else if (fluidFixedCol.value === 'fluid-col') {
       input = fluidInputNumber;
     }
-
-    console.log(input);
 
     columns = new Array(parseInt(input.value)).fill(col);
 
@@ -130,11 +154,64 @@
     return columns;
   };
 
+  renderRow = exampleClass => {
+    renderColumns(exampleClass);
+
+    switch (alignHor.value) {
+      case 'align-hor-left':
+      alignHorClass = 'justify-content-start';
+      break;
+
+      case 'align-hor-right':
+      alignHorClass = 'justify-content-end';
+      break;
+
+      case 'align-hor-center':
+      alignHorClass = 'justify-content-center';
+      break;
+
+      default:
+      alignHorClass = '';
+    }
+
+    switch (alignVert.value) {
+      case 'align-vert-top':
+      alignVertClass = 'align-items-start';
+      break;
+
+      case 'align-vert-bottom':
+      alignVertClass = 'align-items-end';
+      break;
+
+      case 'align-vert-center':
+      alignVertClass = 'align-items-center';
+      break;
+
+      default:
+      alignVertClass = '';
+    }
+
+    openRow = [
+      `           <div class="row col ${alignHorClass} ${alignVertClass}">
+          `];
+
+    closeRow = [
+      `  </div>
+          `];
+  }
+
+
+  renderCode = exampleClass => {
+    renderRow(exampleClass);
+    console.log(openRow);
+    code = openRow.concat(columns, closeRow).join('');
+    return code;
+  }
+
 
   showExample = () => {
-    renderCol('isExample');
-    renderColumns();
-    example.innerHTML = columns.join('');
+    renderCode('isExample');
+    example.innerHTML = code;
   };
 
   copyContent = (e) => {
@@ -149,26 +226,16 @@
 
   generateCode = () => {
 
-    if (fluidCol.checked && !fluidInputNumber.value || fixedCol.checked && !fixedInputNumber.value) {
+    if (fluidFixedCol.value === 'fluid-col' && !fluidInputNumber.value || fluidFixedCol.value === 'fixed-col' && !fixedInputNumber.value) {
       alert('Select column value');
-    } else if (fluidCol.checked && fluidInputNumber.value < 0) {
+    } else if (fluidFixedCol.value === 'fluid-col' && fluidInputNumber.value < 0) {
       fluidInputNumber.value = '';
       alert('Only positive numbers');
     } else {
       showItem(btnCopy);
       showItem(showCode);
-      showItem(exampleContent);
       showExample();
-      renderCol('notExample');
-      renderColumns();
-      const openRow = [
-        `           <div class="row">
-            `];
-
-      const closeRow = [
-        `  </div>
-            `];
-      const code = openRow.concat(columns, closeRow).join('');
+      renderCode('notExample');
       showCode.innerHTML = code;
       return false;
     }
@@ -176,8 +243,7 @@
 
   init = () => {
     columnsSpace.addEventListener('change', showGapSize);
-    fluidCol.addEventListener('click', showContent);
-    fixedCol.addEventListener('click', showContent);
+    fluidFixedCol.addEventListener('click', showContent);
     generateButton.addEventListener('click', generateCode);
     cleanButton.addEventListener('click', cleanCode);
     btnCopy.addEventListener('click', copyContent);

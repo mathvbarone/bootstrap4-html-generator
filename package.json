@@ -17,7 +17,8 @@
   },
   "homepage": "https://matheusbarone.com/bootstrap4-row-generator",
   "dependencies": {
-    "eslint": "^4.19.1"
+    "eslint": "^4.19.1",
+    "js-beautify": "^1.7.5"
   },
   "devDependencies": {
     "eslint-config-airbnb-base": "^12.1.0",
