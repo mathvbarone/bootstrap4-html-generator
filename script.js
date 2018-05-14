@@ -201,11 +201,11 @@
           `];
 
     code = openRow.concat(columns, closeRow).join('');
-    code = beautify.html(htmlContent, {
-      indent_size: 4,
-      wrap_line_length: 100,
-      max_preserve_newlines: 0,
-    });
+    // code = beautify.html(htmlContent, {
+    //   indent_size: 4,
+    //   wrap_line_length: 100,
+    //   max_preserve_newlines: 0,
+    // });
 
     return code;
   }
