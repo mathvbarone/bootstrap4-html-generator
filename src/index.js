@@ -36,25 +36,6 @@ import * as beautify from 'js-beautify';
     // RESPONSIVE INPUT VARIABLE
     const responsiveInput = document.querySelector('.is-responsive');
 
-    // REATTRIBUTABLE VARIABLES
-    let input;
-    let col;
-    let columns;
-    let code;
-    let modifiedCode;
-    let openRow;
-    let colClasses;
-    let closeRow;
-    let rowClasses;
-    let spacerClass;
-    let spaceWidth;
-    let responsiveClass;
-    let responsiveSpacer;
-    let alignHorClass;
-    let alignVertClass;
-    let message;
-    let spacersClass;
-
 
     const showItem = item => item.classList.remove('is-hidden');
     const hideItem = item => item.classList.add('is-hidden');
@@ -98,6 +79,12 @@ import * as beautify from 'js-beautify';
 
 
     const renderCol = exampleClass => {
+      let col;
+      let spacerClass;
+      let spaceWidth;
+      let responsiveClass;
+      let responsiveSpacer;
+
       exampleClass === 'isExample' ? exampleClass = 'col-example' : exampleClass = '';
       responsiveInput.checked ? responsiveSpacer = '-md' : responsiveSpacer = '';
       spaceWidth = `-${spaceWidthInput.value}`;
@@ -132,7 +119,7 @@ import * as beautify from 'js-beautify';
           spacerClass = '';
       }
 
-      colClasses = `${responsiveClass} ${exampleClass} ${spacerClass}`.trim();
+      let colClasses = `${responsiveClass} ${exampleClass} ${spacerClass}`.trim();
 
       col =
           `       <div class="${colClasses}">
@@ -145,7 +132,12 @@ import * as beautify from 'js-beautify';
 
     const renderColumns = exampleClass => {
 
-      renderCol(exampleClass);
+      let col = renderCol(exampleClass);
+      let columns;
+      let input;
+      let spacersClass;
+      let responsiveSpacer;
+      let spaceWidth;
 
       if (fluidFixedCol.value === 'fixed-col') {
         input = fixedInputNumber;
@@ -168,7 +160,9 @@ import * as beautify from 'js-beautify';
     };
 
     const renderCode = exampleClass => {
-      renderColumns(exampleClass);
+      let columns = renderColumns(exampleClass);
+      let alignHorClass;
+      let alignVertClass;
 
       switch (alignHor.value) {
         case 'align-hor-left':
@@ -204,19 +198,19 @@ import * as beautify from 'js-beautify';
         alignVertClass = '';
       }
 
-      rowClasses = `${alignHorClass} ${alignVertClass}`.trim();
+      let rowClasses = `${alignHorClass} ${alignVertClass}`.trim();
 
-      openRow = [
+      let openRow = [
         `           <div class="row col ${rowClasses}">
             `];
 
-      closeRow = [
+      let closeRow = [
         `  </div>
             `];
 
-      code = openRow.concat(columns, closeRow).join('');
+      let code = openRow.concat(columns, closeRow).join('');
 
-      modifiedCode = beautify.html(code, {
+      let modifiedCode = beautify.html(code, {
         indent_size: 6,
         wrap_line_length: 100,
         max_preserve_newlines: 0,
@@ -229,7 +223,7 @@ import * as beautify from 'js-beautify';
 
 
     const showExample = () => {
-      renderCode('isExample');
+      let modifiedCode = renderCode('isExample');
       example.innerHTML = modifiedCode;
     };
 
@@ -242,7 +236,7 @@ import * as beautify from 'js-beautify';
 
 
     const validateMsg = () => {
-      message = '';
+      let message = '';
 
       if (fluidFixedCol.value === 'fluid-col') {
         if (!fluidInputNumber.value) {
@@ -264,7 +258,7 @@ import * as beautify from 'js-beautify';
 
 
     const generateCode = () => {
-      validateMsg();
+      let message = validateMsg();
       if (message) {
 
         alert(`${message}`);
@@ -272,7 +266,7 @@ import * as beautify from 'js-beautify';
         showExample();
         showItem(btnCopy);
         showItem(showCode);
-        renderCode('notExample');
+        let modifiedCode = renderCode('notExample');
         showCode.innerHTML = modifiedCode;
         showItem(codeSection);
         showItem(exampleSection);
