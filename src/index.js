@@ -59,7 +59,8 @@ import * as beautify from 'js-beautify';
 
 
     const showGapSize = () => {
-      columnsSpace.value !== 'space-columns' ? showItem(spaceWidthInput) : '';
+      columnsSpace.value !== 'space-columns' ? showItem(spaceWidthInput) : spaceWidthInput.value = '';
+      spaceWidthInput.value = 1;
     };
 
 
@@ -149,11 +150,11 @@ import * as beautify from 'js-beautify';
       columns = new Array(parseInt(input.value)).fill(col);
 
       if (columns[0].indexOf('ml') !== -1) {
-        columns[0] = columns[0].replace(`ml${responsiveSpacer}${spaceWidth}`, '');
+        columns[0] = columns[0].replace(`ml${responsiveSpacer}${spaceWidth}`, ``).trim();
       }
 
       if (columns[columns.length - 1].indexOf('mr') !== -1) {
-        columns[columns.length - 1] = columns[columns.length - 1].replace(`mr${responsiveSpacer}${spaceWidth}`, '');
+        columns[columns.length - 1] = columns[columns.length - 1].replace(`mr${responsiveSpacer}${spaceWidth}`, ``).trim();
       }
       return columns;
     };
