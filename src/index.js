@@ -53,6 +53,7 @@ import * as beautify from 'js-beautify';
     let alignHorClass;
     let alignVertClass;
     let message;
+    let spacersClass;
 
 
     const showItem = item => item.classList.remove('is-hidden');
@@ -154,12 +155,14 @@ import * as beautify from 'js-beautify';
 
       columns = new Array(parseInt(input.value)).fill(col);
 
+      spacersClass = `${responsiveSpacer}${spaceWidth}`.trim();
+
       if (columns[0].indexOf('ml') !== -1) {
-        columns[0] = columns[0].replace(`ml${responsiveSpacer}${spaceWidth}`, ``).trim();
+        columns[0] = columns[0].replace(`ml${spacersClass}`, ``);
       }
 
       if (columns[columns.length - 1].indexOf('mr') !== -1) {
-        columns[columns.length - 1] = columns[columns.length - 1].replace(`mr${responsiveSpacer}${spaceWidth}`, ``).trim();
+        columns[columns.length - 1] = columns[columns.length - 1].replace(`mr${spacersClass}`, ``).trim();
       }
       return columns;
     };
