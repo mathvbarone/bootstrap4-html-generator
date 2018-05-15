@@ -43,8 +43,9 @@ import * as beautify from 'js-beautify';
     let code;
     let modifiedCode;
     let openRow;
-
+    let colClasses;
     let closeRow;
+    let rowClasses;
     let spacerClass;
     let spaceWidth;
     let responsiveClass;
@@ -130,10 +131,14 @@ import * as beautify from 'js-beautify';
           spacerClass = '';
       }
 
+      colClasses = `${responsiveClass} ${exampleClass} ${spacerClass}`.trim();
+
       col =
-          `       <div class="${responsiveClass} ${exampleClass} ${spacerClass}">
+          `       <div class="${colClasses}">
                   </div>
           `;
+
+
       return col;
     };
 
@@ -196,8 +201,10 @@ import * as beautify from 'js-beautify';
         alignVertClass = '';
       }
 
+      rowClasses = `${alignHorClass} ${alignVertClass}`.trim();
+
       openRow = [
-        `           <div class="row col ${alignHorClass} ${alignVertClass}">
+        `           <div class="row col ${rowClasses}">
             `];
 
       closeRow = [
