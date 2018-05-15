@@ -1,5 +1,6 @@
 import style from "./main.css";
 import * as beautify from 'js-beautify';
+import swal from 'sweetalert2'
 
 (() => {
     // COLS VARIABLES
@@ -231,7 +232,10 @@ import * as beautify from 'js-beautify';
       e.preventDefault;
       showCode.select();
       document.execCommand('Copy');
-      alert('Code copied to your clipboard!');
+      swal({
+        type: 'success',
+        title: 'Code copied to your clipboard!',
+      })
     };
 
 
@@ -240,15 +244,15 @@ import * as beautify from 'js-beautify';
 
       if (fluidFixedCol.value === 'fluid-col') {
         if (!fluidInputNumber.value) {
-          message = 'Select column Value';
+          message = 'Select Column Value';
         } else if (fluidInputNumber.value <= 0) {
-          message = 'Only positive numbers';
+          message = 'Only Positive numbers';
         }
       }
 
       if (fluidFixedCol.value === 'fixed-col') {
         if (fixedInputNumber.value === 'number-of-columns') {
-          message = 'Select column Value';
+          message = 'Select Column Value';
         } else if (columnWidth.value === 'width-of-columns') {
           message = 'Select Column Size';
         }
@@ -260,8 +264,10 @@ import * as beautify from 'js-beautify';
     const generateCode = () => {
       let message = validateMsg();
       if (message) {
-
-        alert(`${message}`);
+        swal({
+          type: 'error',
+          title: `${message}`,
+        })
       } else {
         showExample();
         showItem(btnCopy);
