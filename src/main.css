@@ -10,6 +10,10 @@ label {
     cursor: pointer;
 }
 
+/* .invalid-feedback {
+    display: block;
+} */
+
 
 /* HEADER */
 
@@ -109,7 +113,7 @@ label {
 
 .example {
     width: 100%;
-    height: 200px;
+    min-height: 200px;
     background: #fff;
 }
 

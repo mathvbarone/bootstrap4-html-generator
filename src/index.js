@@ -1,12 +1,20 @@
 import style from "./main.css";
+import fallback from './fallback';
 import * as beautify from 'js-beautify';
 import swal from 'sweetalert2'
 
+
+
 (() => {
+
     // COLS VARIABLES
     const fluidFixedCol = document.querySelector('.fluid-fixed-col');
     const fluidInputNumber = document.querySelector('.columns-fluid-input');
     const fixedInputNumber = document.querySelector('.columns-fixed-input');
+    const colFixed = document.querySelector('.columns-fixed-col');
+    const colFluid = document.querySelector('.columns-fluid-col');
+    const colSize = document.querySelector('.columns-size-col');
+
 
     // COLUMNS VARIABLES
     const columnWidth = document.querySelector('.column-width-input');
@@ -37,6 +45,10 @@ import swal from 'sweetalert2'
     // RESPONSIVE INPUT VARIABLE
     const responsiveInput = document.querySelector('.is-responsive');
 
+    //FORM VALUDADE
+    const formValidate = document.querySelectorAll('.form-validate');
+
+
 
     const showItem = item => item.classList.remove('is-hidden');
     const hideItem = item => item.classList.add('is-hidden');
@@ -48,8 +60,7 @@ import swal from 'sweetalert2'
     };
 
 
-    const cleanCode = e => {
-      e.preventDefault();
+    const cleanCode = () => {
       hideItem(spaceWidthInput);
       hideItem(btnCopy);
       hideItem(codeSection);
@@ -63,18 +74,23 @@ import swal from 'sweetalert2'
       responsiveInput.checked = false;
       showCode.innerHTML = '';
       spaceWidthInput.value = 'set-space-width';
+      return false;
     };
 
 
     const showContent = () => {
-      fluidFixedCol.value === 'fluid-col' ? showItem(fluidInputNumber) : hideItem(fluidInputNumber);
+      if (fluidFixedCol.value === 'fluid-col') {
+        showItem(colFluid)
+      } else{
+        hideItem(colFluid);
+      }
 
       if (fluidFixedCol.value === 'fixed-col') {
-        showItem(fixedInputNumber);
-        showItem(columnWidth);
+        showItem(colFixed);
+        showItem(colSize);
       } else {
-        hideItem(columnWidth);
-        hideItem(fixedInputNumber);
+        hideItem(colFixed);
+        hideItem(colSize);
       }
     };
 
@@ -264,11 +280,19 @@ import swal from 'sweetalert2'
     const generateCode = () => {
       let message = validateMsg();
       if (message) {
-        swal({
-          type: 'error',
-          title: `${message}`,
-        })
+        cleanCode();
+        formValidate.forEach(
+          formInput => {
+            formInput.classList.add('is-invalid');
+          }
+        );
+        
       } else {
+        formValidate.forEach(
+          formInput => {
+            formInput.classList.remove('is-invalid');
+          }
+        );
         showExample();
         showItem(btnCopy);
         showItem(showCode);
