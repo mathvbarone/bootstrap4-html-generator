@@ -46,7 +46,8 @@ import swal from 'sweetalert2'
     const responsiveInput = document.querySelector('.is-responsive');
 
     //FORM VALUDADE
-    const formValidate = document.querySelectorAll('.form-validate');
+    const formInputs = document.querySelectorAll('.form-control');
+    const formValidateClass = document.querySelectorAll('.form-validate');
 
 
 
@@ -260,39 +261,30 @@ import swal from 'sweetalert2'
 
       if (fluidFixedCol.value === 'fluid-col') {
         if (!fluidInputNumber.value) {
-          message = 'Select Column Value';
+          message = 'Select Number of Columns';
         } else if (fluidInputNumber.value <= 0) {
           message = 'Only Positive numbers';
         }
       }
 
       if (fluidFixedCol.value === 'fixed-col') {
-        if (fixedInputNumber.value === 'number-of-columns') {
-          message = 'Select Column Value';
-        } else if (columnWidth.value === 'width-of-columns') {
-          message = 'Select Column Size';
-        }
+        if (fixedInputNumber.value === 'number-of-columns' || columnWidth.value === 'width-of-columns') {
+          message = 'Select Number of Columns and Size of Columns';
+        } 
       }
       return message;
     }
 
 
+
     const generateCode = () => {
       let message = validateMsg();
       if (message) {
-        cleanCode();
-        formValidate.forEach(
-          formInput => {
-            formInput.classList.add('is-invalid');
-          }
-        );
-        
+        swal({
+          type: 'error',
+          title: `${message}`,
+        })
       } else {
-        formValidate.forEach(
-          formInput => {
-            formInput.classList.remove('is-invalid');
-          }
-        );
         showExample();
         showItem(btnCopy);
         showItem(showCode);
@@ -302,7 +294,8 @@ import swal from 'sweetalert2'
         showItem(exampleSection);
         return false;
       }
-    };
+      }
+  
 
     const init = () => {
       columnsSpace.addEventListener('change', showGapSize);
